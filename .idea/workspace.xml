@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="583ad5d5-5eb1-4691-b70d-f062715bab78" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notebooks/test.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,6 +13,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1YcT5qlrSic4ZefB8hAZ3JSlJc0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -21,6 +24,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="configurable.group.build" />
   </component>
@@ -49,7 +53,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583316663178</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="New notebook with database">
+      <created>1583327459336</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1583327459336</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -57,7 +68,10 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="BEK_SORT_TYPE" value="1" />
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -66,25 +80,26 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new notebook added" />
     <MESSAGE value="test commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="test commit" />
+    <MESSAGE value="New notebook with database" />
+    <option name="LAST_COMMIT_MESSAGE" value="New notebook with database" />
   </component>
   <component name="WindowStateProjectService">
     <state x="701" y="329" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1583315995157">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="701" y="329" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583315995157" />
-    <state x="626" y="119" key="CommitChangelistDialog2" timestamp="1583316661781">
+    <state x="626" y="119" key="CommitChangelistDialog2" timestamp="1583327451458">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="626" y="119" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583316661781" />
+    <state x="626" y="119" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583327451458" />
     <state x="184" y="85" key="DiffContextDialog" timestamp="1583315822768">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="184" y="85" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583315822768" />
-    <state x="740" y="277" key="FileChooserDialogImpl" timestamp="1583316813610">
+    <state x="740" y="277" key="FileChooserDialogImpl" timestamp="1583327624654">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="277" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1583316813610" />
+    <state x="740" y="277" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1583327624654" />
     <state x="814" y="424" key="GitRewordDialog" timestamp="1583316942481">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -97,13 +112,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="463" y="151" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1583315753052" />
-    <state x="552" y="243" key="Vcs.Push.Dialog.v2" timestamp="1583315971540">
+    <state x="552" y="243" key="Vcs.Push.Dialog.v2" timestamp="1583327902656">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="243" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583315971540" />
+    <state x="552" y="243" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583327902656" />
     <state x="667" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1583327300858">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="667" y="346" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583327300858" />
+    <state x="771" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583327813935">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="771" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583327813935" />
   </component>
 </project>
