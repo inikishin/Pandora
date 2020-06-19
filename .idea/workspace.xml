@@ -1,11 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="583ad5d5-5eb1-4691-b70d-f062715bab78" name="Default Changelist" comment="" />
+    <list default="true" id="583ad5d5-5eb1-4691-b70d-f062715bab78" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/API/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/moexapi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/ptsapi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/ticker_list.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/preprocessing/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/preprocessing/dailyAnalysis.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/preprocessing/preprocessing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notebooks/.ipynb_checkpoints/Elder-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Notebooks/.ipynb_checkpoints/Elder-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notebooks/Elder.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Notebooks/Elder.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notebooks/MOEX API.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Notebooks/MOEX API.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notebooks/Plotly charts &amp; analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Notebooks/Plotly charts &amp; analysis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notebooks/images/GAZP_channel_a3a83281-33c2-4133-9cc7-32d7c0d82c2a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notebooks/images/GAZP_daily_a3a83281-33c2-4133-9cc7-32d7c0d82c2a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notebooks/images/GAZP_divbar_a3a83281-33c2-4133-9cc7-32d7c0d82c2a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notebooks/images/GAZP_elder_a3a83281-33c2-4133-9cc7-32d7c0d82c2a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notebooks/images/GAZP_volatility_a3a83281-33c2-4133-9cc7-32d7c0d82c2a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notebooks/images/GAZP_weekly_a3a83281-33c2-4133-9cc7-32d7c0d82c2a.png" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -15,14 +60,113 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.main">
+    <configuration name="dailyAnalysis" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Pandora" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/preprocessing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/preprocessing/dailyAnalysis.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Pandora" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="moexapi" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Pandora" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/API" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/API/moexapi.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="preprocessing" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Pandora" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/preprocessing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/preprocessing/preprocessing.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.dailyAnalysis" />
+        <item itemvalue="Python.preprocessing" />
+        <item itemvalue="Python.moexapi" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -73,12 +217,12 @@
           <value>
             <State>
               <option name="BEK_SORT_TYPE" value="1" />
-              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new notebook added" />
@@ -88,49 +232,58 @@
     <option name="LAST_COMMIT_MESSAGE" value="Remove test file" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="701" y="329" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1583315995157">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="781" y="307" width="424" height="484" key="FileChooserDialogImpl" timestamp="1592216359002">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="701" y="329" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583315995157" />
-    <state x="626" y="119" key="CommitChangelistDialog2" timestamp="1583327983732">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="781" y="307" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1592216359002" />
+    <state width="1830" height="186" key="GridCell.Tab.0.bottom" timestamp="1592588713786">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="626" y="119" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583327983732" />
-    <state x="184" y="85" key="DiffContextDialog" timestamp="1583315822768">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1829" height="186" key="GridCell.Tab.0.bottom/67.27.1852.925@67.27.1852.925" timestamp="1592568054515" />
+    <state width="1830" height="186" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1592588713786" />
+    <state width="1830" height="159" key="GridCell.Tab.0.bottom/67.27.1853.925@67.27.1853.925" timestamp="1591085952145" />
+    <state width="1830" height="186" key="GridCell.Tab.0.center" timestamp="1592588713785">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="184" y="85" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583315822768" />
-    <state x="740" y="277" key="FileChooserDialogImpl" timestamp="1583327624654">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1829" height="186" key="GridCell.Tab.0.center/67.27.1852.925@67.27.1852.925" timestamp="1592568054514" />
+    <state width="1830" height="186" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1592588713785" />
+    <state width="1830" height="159" key="GridCell.Tab.0.center/67.27.1853.925@67.27.1853.925" timestamp="1591085952142" />
+    <state width="1830" height="186" key="GridCell.Tab.0.left" timestamp="1592588713785">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="740" y="277" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1583327624654" />
-    <state x="814" y="424" key="GitRewordDialog" timestamp="1583316942481">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1829" height="186" key="GridCell.Tab.0.left/67.27.1852.925@67.27.1852.925" timestamp="1592568054513" />
+    <state width="1830" height="186" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1592588713785" />
+    <state width="1830" height="159" key="GridCell.Tab.0.left/67.27.1853.925@67.27.1853.925" timestamp="1591085952141" />
+    <state width="1830" height="186" key="GridCell.Tab.0.right" timestamp="1592588713785">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="814" y="424" key="GitRewordDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583316942481" />
-    <state x="829" y="417" key="Github.ShareDialog" timestamp="1583316533031">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1829" height="186" key="GridCell.Tab.0.right/67.27.1852.925@67.27.1852.925" timestamp="1592568054515" />
+    <state width="1830" height="186" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1592588713785" />
+    <state width="1830" height="159" key="GridCell.Tab.0.right/67.27.1853.925@67.27.1853.925" timestamp="1591085952144" />
+    <state width="1830" height="344" key="GridCell.Tab.1.bottom" timestamp="1592429778492">
+      <screen x="67" y="27" width="1852" height="925" />
     </state>
-    <state x="829" y="417" key="Github.ShareDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583316533031" />
-    <state x="463" y="151" key="SettingsEditor" timestamp="1583315753052">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1830" height="344" key="GridCell.Tab.1.bottom/67.27.1852.925@67.27.1852.925" timestamp="1592429778492" />
+    <state width="1830" height="344" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1592428647472" />
+    <state width="1830" height="344" key="GridCell.Tab.1.center" timestamp="1592429778490">
+      <screen x="67" y="27" width="1852" height="925" />
     </state>
-    <state x="463" y="151" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1583315753052" />
-    <state x="552" y="243" key="Vcs.Push.Dialog.v2" timestamp="1583328014963">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1830" height="344" key="GridCell.Tab.1.center/67.27.1852.925@67.27.1852.925" timestamp="1592429778490" />
+    <state width="1830" height="344" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1592428647468" />
+    <state width="1830" height="344" key="GridCell.Tab.1.left" timestamp="1592429778490">
+      <screen x="67" y="27" width="1852" height="925" />
     </state>
-    <state x="552" y="243" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583328014963" />
-    <state x="667" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1583327300858">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1830" height="344" key="GridCell.Tab.1.left/67.27.1852.925@67.27.1852.925" timestamp="1592429778490" />
+    <state width="1830" height="344" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1592428647467" />
+    <state width="1830" height="344" key="GridCell.Tab.1.right" timestamp="1592429778490">
+      <screen x="67" y="27" width="1852" height="925" />
     </state>
-    <state x="667" y="346" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583327300858" />
-    <state x="771" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583327813935">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1830" height="344" key="GridCell.Tab.1.right/67.27.1852.925@67.27.1852.925" timestamp="1592429778490" />
+    <state width="1830" height="344" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1592428647471" />
+    <state x="514" y="161" key="SettingsEditor" timestamp="1590415122402">
+      <screen x="67" y="27" width="1853" height="925" />
     </state>
-    <state x="771" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583327813935" />
-    <state x="693" y="322" key="git4idea.merge.GitPullDialog" timestamp="1583328008681">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="693" y="322" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583328008681" />
+    <state x="514" y="180" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1590144930122" />
+    <state x="514" y="161" key="SettingsEditor/67.27.1853.925@67.27.1853.925" timestamp="1590415122402" />
   </component>
 </project>
