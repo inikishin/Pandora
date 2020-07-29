@@ -4,7 +4,7 @@ from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import uuid
 from datetime import datetime
-from preprocessing import preprocessing
+from preprocessing import preprocessing, dailyanalysisprediction
 from API import ptsapi
 import configparser
 import ftplib
@@ -17,15 +17,37 @@ config.read('/home/ilya/PycharmProjects/Pandora/settings.ini')
 def saveimg(img_name, image_folder, fig, ftp):
     fig.write_image(image_folder + img_name)
     image = Image.open(image_folder + img_name)
-    image = image.resize((750, 600), Image.ANTIALIAS)
+    #image = image.resize((750, 600), Image.ANTIALIAS)
+    image = image.resize((638, 510), Image.ANTIALIAS)
     drawing = ImageDraw.Draw(image)
-    drawing.text((70, 80),
+    drawing.text((60, 70),
                  'www.pandoratradingsolutions.ru',
                  fill=(160, 160, 160),
                  font=ImageFont.truetype("Pillow/Tests/fonts/FreeMono.ttf", 10))
     image.save(image_folder + img_name, 'png')
-    with open(image_folder + img_name, 'rb') as fobj:
-        ftp.storbinary('STOR ' + img_name, fobj, 8192)
+    if config['PANDORATRADINGSOLUTION']['test_env'] == 'False':
+        with open(image_folder + img_name, 'rb') as fobj:
+            ftp.storbinary('STOR ' + img_name, fobj, 8192)
+
+
+def pts_layout(fig, holydays='', is_show_figs=False):
+    updated_fig = fig
+
+    if holydays != '':
+        updated_fig.update_xaxes(rangebreaks=[dict(bounds=["sat", "mon"]), holydays])
+    updated_fig.update_xaxes(showline=True, linewidth=1, linecolor='black', mirror=True)
+    updated_fig.update_yaxes(showline=True, linewidth=1, linecolor='black', mirror=True)
+
+    updated_fig.update_layout(height=800,
+                              width=1000,
+                              xaxis_rangeslider_visible=False,
+                              template='plotly_white',
+                              )
+    if is_show_figs:
+        updated_fig.show()
+
+    return updated_fig
+
 
 def weeklyanalysisblock(df, ticker, doc_uuid, image_folder, is_show_figs, ftp):
 
@@ -58,7 +80,7 @@ def weeklyanalysisblock(df, ticker, doc_uuid, image_folder, is_show_figs, ftp):
     }
     downsampled_df = df.resample('W').apply(conversion)
     downsampled_df.dropna(inplace=True)
-    research_window = 100  # Число баров для анализа
+    research_window = 35  # Число баров для анализа
     downsampled_df = downsampled_df[-research_window:]
 
     # Расчет линии регрессии за последние 8 баров
@@ -71,7 +93,9 @@ def weeklyanalysisblock(df, ticker, doc_uuid, image_folder, is_show_figs, ftp):
                                  high=downsampled_df['w1_high'],
                                  low=downsampled_df['w1_low'],
                                  close=downsampled_df['w1_close'],
-                                 name=ticker),
+                                 name=ticker,
+                                 increasing_line_color='#28a745',
+                                 decreasing_line_color='#dc3545'),
                   row=1, col=1)
     # **********************************************************************************************************
     fig.add_trace(go.Scatter(
@@ -115,43 +139,29 @@ def weeklyanalysisblock(df, ticker, doc_uuid, image_folder, is_show_figs, ftp):
     fig.update_yaxes(title_text="График цены", row=1, col=1)
     fig.update_yaxes(title_text="MACD", row=2, col=1)
     fig.update_yaxes(title_text="%Willams", row=3, col=1)
-    fig.update_layout(height=800, width=1000, xaxis_rangeslider_visible=False)
-
-    if is_show_figs:
-        fig.show()
+    fig = pts_layout(fig, is_show_figs=is_show_figs)
 
     img_name = ticker + "_weekly_" + doc_uuid + ".png"
     saveimg(img_name, image_folder, fig, ftp)
 
-    content = '###Анализ недельного графика  \n'
+    content = '###Анализ недельного графика {: .color-primary}  \n'
 
     # Цена. Процент изменения цены и линия регрессии
-    annot_str = 'За последние 5 недель изменение цены составило ' + str(
-        round(downsampled_df.w1_prcntChng_5[-1] * 100, 2)) + '%, что свидетельствует о ' + (
-                    'краткосрочном росте цен. ' if downsampled_df.w1_prcntChng_5[
-                                                       -1] > 0 else 'краткосрочном падении цен. ')
-    annot_str = annot_str + 'Долгосрочное изменение цены (за последние полгода) составлет ' + str(
-        round(downsampled_df.w1_prcntChng_15[-1] * 100, 2)) + '%. '
+    annot_str = 'Изменение цены за последние полгода составляет ' + str(
+        round(downsampled_df.w1_prcntChng_15[-1] * 100, 2)) + '%, '
+    annot_str = annot_str + 'а за последний месяц ' + str(
+        round(downsampled_df.w1_prcntChng_5[-1] * 100, 2)) + '%. '
     content = content + annot_str
 
-    annot_str = 'Линия регрессии, построенная за последние 8 недель, направлена ' + (
-        'вниз' if downsampled_reg[-1] < downsampled_reg[-2] else 'вверх') + '. '
-    annot_str = annot_str + 'Угол наклона составляет ' + str(round(downsampled_ugol_reg, 1)) + ' градусов. '
+    annot_str = 'Направление движения цены последний месяц соответствует ' + (
+        'медвежьему тренду. ' if downsampled_reg[-1] < downsampled_reg[-2] else 'бычьему тренду. ')
     content = content + annot_str
 
     # MA
     annot_str = 'Цена находится ' + (
-        'выше' if downsampled_df.w1_MA_fast_price_pos[-1] == 1 else 'ниже') + ' быстрой скользящей средней. '
+        'выше' if downsampled_df.w1_MA_fast_price_pos[-1] == 1 else 'ниже') + ' быстрой скользящей средней. \n'
     annot_str = annot_str + 'Быстрая скользящая средняя, в свою очередь, находится ' + (
-        'выше' if downsampled_df.w1_MA_fast_slow_pos[-1] == 1 else 'ниже') + ' медленной скользящей средней. '
-    annot_str = annot_str + 'Все это говорит о том, что сейчас на рынке наблюдается '
-    if downsampled_df.w1_MA_fast_price_pos[-1] == 1 and downsampled_df.w1_MA_fast_slow_pos[-1] == 1:
-        annot_str = annot_str + 'сильный восходящий тренд. '
-    elif downsampled_df.w1_MA_fast_price_pos[-1] == 0 and downsampled_df.w1_MA_fast_slow_pos[-1] == 0:
-        annot_str = annot_str + 'сильный нисходящий тренд. '
-    else:
-        annot_str = annot_str + 'разнонаправленное горизонтальное движение рынка или наблюдается смена тренда.'
-    content = content + annot_str + '  \n'
+        'выше' if downsampled_df.w1_MA_fast_slow_pos[-1] == 1 else 'ниже') + ' медленной скользящей средней. \n'
 
     # MACD
     annot_str = 'Индикатор MACD находится ' + (
@@ -165,25 +175,25 @@ def weeklyanalysisblock(df, ticker, doc_uuid, image_folder, is_show_figs, ftp):
     content = content + annot_str
 
     # Осцилляторы
-    annot_str = 'Значение индикатора %Williams равно ' + str(round(downsampled_df.w1_WILLR[-1], 0)) + '. '
+    annot_str = 'Значение индикатора %Williams равно ' + str(round(downsampled_df.w1_WILLR[-1], 0))
 
     if downsampled_df.w1_WILLRoverZones[-1] > 0:
-        annot_str = annot_str + 'Он находится в зоне перепроданности. '
+        annot_str = annot_str + ', он находится в зоне перепроданности. '
     elif downsampled_df.w1_WILLRoverZones[-1] < 0:
-        annot_str = annot_str + 'Он находится в зоне перекупленности. '
+        annot_str = annot_str + ', он находится в зоне перекупленности. '
     else:
-        annot_str = annot_str + 'Он не находится на текущий момент в экстремальных зонах. '
+        annot_str = annot_str + ', он не находится на текущий момент в экстремальных зонах. '
 
     if downsampled_df.w1_WILLRdiv_short[-1] > 0:
-        annot_str = annot_str + 'Также присутствует краткосрочное бычье расхождение между ценой и индикатором %Williams. Что может говорить о скором появлении восходящего движения цены. '
+        annot_str = annot_str + 'Также присутствует краткосрочное бычье расхождение между ценой и индикатором %Williams. Что может свидетельствовать о скором появлении восходящего движения цены. '
     if downsampled_df.w1_WILLRdiv_short[-1] < 0:
-        annot_str = annot_str + 'Также присутствует краткосрочное медвежье расхождение между ценой и индикатором %Williams. Что может говорить о скором появлении нисходящего движения цены. '
+        annot_str = annot_str + 'Также присутствует краткосрочное медвежье расхождение между ценой и индикатором %Williams. Что может свидетельствовать о скором появлении нисходящего движения цены. '
 
     if downsampled_df.w1_WILLRdiv_long[-1] > 0:
-        annot_str = annot_str + 'Также присутствует среднесрочное бычье расхождение между ценой и индикатором %Williams. Что может говорить о скором появлении восходящего движения цены. '
+        annot_str = annot_str + 'Также присутствует среднесрочное бычье расхождение между ценой и индикатором %Williams. Что может свидетельствовать о скором появлении восходящего движения цены. '
     if downsampled_df.w1_WILLRdiv_long[-1] < 0:
-        annot_str = annot_str + 'Также присутствует среднесрочное медвежье расхождение между ценой и индикатором %Williams. Что может говорить о скором появлении нисходящего движения цены. '
-    content = content + annot_str
+        annot_str = annot_str + 'Также присутствует среднесрочное медвежье расхождение между ценой и индикатором %Williams. Что может свидетельствовать о скором появлении нисходящего движения цены. '
+    content = content + annot_str + '  \n'
 
     # Свечные паттерны
     annot_str = ''
@@ -195,20 +205,27 @@ def weeklyanalysisblock(df, ticker, doc_uuid, image_folder, is_show_figs, ftp):
         annot_str = annot_str + 'Один из трех последних баров представляет собой дивергентный бар на покупку, что может являтся сигналом разворота.'
     if downsampled_df.w1_DivBar[-3:-1].min() < 0:
         annot_str = annot_str + 'Один из трех последних баров представляет собой дивергентный бар на продажу, что может являтся сигналом разворота.'
-    content = content + annot_str + '  \n'
+    content = content + annot_str + '  \n\n'
 
-    annot_str = ''
+    annot_str = 'На текущий момент на недельном графике наблюдается '
     if downsampled_df.w1_UpperTimeFrameCondition[-1] == 2:
-        annot_str = annot_str + '**Краткосрочный сильный тренд вверх. Общие рекомендации, покупать или оставаться вне рынка. Предпочтительные стратегии: три экрана.**'
+        annot_str = annot_str + 'краткосрочный **сильный** тренд вверх. Общие рекомендации, покупать или оставаться вне ' \
+                                'рынка. Предпочтительные стратегии: экраны Элдера.'
     elif downsampled_df.w1_UpperTimeFrameCondition[-1] == -2:
-        annot_str = annot_str + '**Краткосрочный сильный тренд вниз. Общие рекомендации, продавать или оставаться вне рынка. Предпочитаемые стратегии: три экрана.**'
+        annot_str = annot_str + 'краткосрочный **сильный** тренд вниз. Общие рекомендации, продавать или оставаться вне ' \
+                                'рынка. Предпочитаемые стратегии: экраны Элдера.'
     elif downsampled_df.w1_UpperTimeFrameCondition[-1] == 1:
-        annot_str = annot_str + '**Краткосрочный тренд вверх. Общие рекомендации, покупать, торговать на разворот при сильных сигналах или оставаться вне рынка. Предпочтительные стратегии: три экрана, система канала (с осторожностью), дивергентный бар (с осторожностью), прорыв волатильности.**'
+        annot_str = annot_str + 'краткосрочный тренд вверх. Общие рекомендации, покупать, торговать на разворот в короткую сторону при ' \
+                                'сильных сигналах или оставаться вне рынка. Предпочтительные стратегии: экраны Элдера, ' \
+                                'канальная стратегия , дивергентный бар, прорыв волатильности, NR4/ID.'
     elif downsampled_df.w1_UpperTimeFrameCondition[-1] == -1:
-        annot_str = annot_str + '**Краткосрочный тренд вниз. Общие рекомендации, продавать, торговать на разворот при сильных сигналах или оставаться вне рынка. Предпочтительные стратегии: три экрана, система канала (с осторожностью), дивергентный бар (с осторожностью), прорыв волатильности.**'
+        annot_str = annot_str + 'краткосрочный тренд вниз. Общие рекомендации, продавать, торговать на разворот в длинную сторону при ' \
+                                'сильных сигналах или оставаться вне рынка. Предпочтительные стратегии: экраны Элдера, ' \
+                                'канальная стратегия , дивергентный бар, прорыв волатильности, NR4/ID.'
     else:
-        annot_str = annot_str + '**Горизонтальное или разнонаправленное направление движдения рынка. Общие рекомендации, торговать внутрь канала и ждать прорыва волатильности. Предпочтительные стратегии: система канала, дивергентный бар, прорыв волатильности.**'
-
+        annot_str = annot_str + 'горизонтальное или разнонаправленное направление движения рынка. Общие рекомендации: ' \
+                                'торговать внутрь канала и ждать прорыва волатильности. Предпочтительные стратегии: ' \
+                                'канальная стратегия, дивергентный бар, прорыв волатильности, NR4/ID.'
     content = content + annot_str + '  \n'
     content = content + '![Alt text](media_url/dailyAnalysis/' + img_name + ')' + '  \n'
 
@@ -216,7 +233,7 @@ def weeklyanalysisblock(df, ticker, doc_uuid, image_folder, is_show_figs, ftp):
 
 
 def dailyanalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_show_figs, ftp):
-    research_window = 75  # Число баров для анализа
+    research_window = 50  # Число баров для анализа
     df_short = df[-research_window:]
 
     df_short_reg_8, df_short_ugol_8 = preprocessing.RegAngleLine(df_short.close, 8)
@@ -313,7 +330,7 @@ def dailyanalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_show_fig
     # ********************************
     # отмечаем интересные зоны на графике
     annotations = []
-    df_ann = df_short[-20:]
+    df_ann = df_short[-10:]
     for index, row in df_ann[df_ann['ShootingStar'] < 0].iterrows():
         annotations.append(
             dict(x=index, y=row['low'], xref='x', yref='y', showarrow=True, xanchor='left', text='ShootingStar'))
@@ -331,22 +348,18 @@ def dailyanalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_show_fig
     fig.update_yaxes(title_text="CCI", row=2, col=1)
     fig.update_yaxes(title_text="%Williams", row=3, col=1)
     fig.update_yaxes(title_text="MACD", row=4, col=1)
-    fig.update_xaxes(rangebreaks=[dict(bounds=["sat", "mon"]), holydays])
-    fig.update_layout(height=800, width=1000, xaxis_rangeslider_visible=False)
-
-    if is_show_figs:
-        fig.show()
+    fig = pts_layout(fig, holydays=holydays, is_show_figs=is_show_figs)
 
     img_name = ticker + "_daily_" + doc_uuid + ".png"
     saveimg(img_name, image_folder, fig, ftp)
 
-    content = '###Анализ дневного графика  \n'
+    content = '###Анализ дневного графика {: .color-primary}  \n'
 
     # Цена. Линия регрессии
-    annot_str = 'Линия регрессии, построенная за последние 8 дней, направлена ' + (
+    annot_str = 'Линия тренда, построенная за последние 8 дней, направлена ' + (
         'вниз' if df_short_reg_8[-1] < df_short_reg_8[-2] else 'вверх') + '. '
     annot_str = annot_str + 'Угол ее наклона составляет ' + str(round(df_short_ugol_8, 1)) + ' градусов. '
-    annot_str = annot_str + 'Линия регрессии, построенная за последние 35 дней, направлена ' + (
+    annot_str = annot_str + 'Линия тренда, построенная за последние 35 дней, направлена ' + (
         'вниз' if df_short_reg_35[-1] < df_short_reg_35[-2] else 'вверх') + '. '
     annot_str = annot_str + 'Угол ее наклона составляет ' + str(round(df_short_ugol_35, 1)) + ' градусов. '
     content = content + annot_str
@@ -356,17 +369,17 @@ def dailyanalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_show_fig
         'выше' if df_short.MA_fast_price_pos[-1] == 1 else 'ниже') + ' быстрой скользящей средней. '
     annot_str = annot_str + 'Быстрое скользящее среднее, в свою очередь, находится ' + (
         'выше' if df_short.MA_fast_slow_pos[-1] == 1 else 'ниже') + ' медленной скользящей средней. '
-    annot_str = annot_str + 'Все это говорит о том, что сейчас на рынке наблюдается '
+    annot_str = annot_str + 'Все это указывает на то, что сейчас на рынке наблюдается '
     if df_short.MA_fast_price_pos[-1] == 1 and df_short.MA_fast_slow_pos[-1] == 1:
-        annot_str = annot_str + 'сильный восходящий тренд. '
+        annot_str = annot_str + 'восходящий тренд. '
     elif df_short.MA_fast_price_pos[-1] == 0 and df_short.MA_fast_slow_pos[-1] == 0:
-        annot_str = annot_str + 'сильный нисходящий тренд. '
+        annot_str = annot_str + 'нисходящий тренд. '
     else:
         annot_str = annot_str + 'разнонаправленное горизонтальное движение рынка или наблюдается смена тренда. '
-    content = content + annot_str
+    content = content + annot_str + '  \n'
 
     # MACD
-    annot_str = 'Индикатор MACD находится ' + ('выше' if df_short.MACD[-1] > 0 else 'ниже') + ' нулевой линии. '
+    annot_str = 'Индикатор MACD находится ' + ('выше' if df_short.MACD[-1] > 0 else 'ниже') + ' нулевой линии'
     annot_str = annot_str + ', его значения ' + (
         'снижаются. ' if df_short.MACDchg[-1] == 0 else 'повышаются. ')
     if df_short.MACDdiv_short[-1] > 0:
@@ -416,7 +429,7 @@ def dailyanalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_show_fig
         annot_str = annot_str + 'Также присутствует среднесрочное бычье расхождение между ценой и индикатором CCI. Что может говорить о скором появлении восходящего движения цены. '
     if df_short.CCIdiv_long[-1] < 0:
         annot_str = annot_str + 'Также присутствует среднесрочное медвежье расхождение между ценой и индикатором CCI. Что может говорить о скором появлении нисходящего движения цены. '
-    content = content + annot_str
+    content = content + annot_str + '  \n'
 
     # Свечные паттерны
     annot_str = ''
@@ -459,16 +472,12 @@ def elderanalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_show_fig
     # финальная настройка layout
     fig.update_yaxes(title_text="График цены", row=1, col=1)
     fig.update_yaxes(title_text="%Williams", row=2, col=1)
-    fig.update_xaxes(rangebreaks=[dict(bounds=["sat", "mon"]), holydays])
-    fig.update_layout(height=800, width=1000, xaxis_rangeslider_visible=False)
-
-    if is_show_figs:
-        fig.show()
+    fig = pts_layout(fig, holydays=holydays, is_show_figs=is_show_figs)
 
     img_name = ticker + "_elder_" + doc_uuid + ".png"
     saveimg(img_name, image_folder, fig, ftp)
 
-    content = '###Стратегия: Три экрана Элдера  \n'
+    content = '###Стратегия: Три экрана Элдера {: .color-primary}  \n'
 
     annot_str = ''
     if df.sig_elder[-1] < 0:
@@ -480,13 +489,14 @@ def elderanalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_show_fig
         annot_str = annot_str + '**Значения инидикатора %Williams в зоне перепроданности. Выставляем стоп приказ на покупку по цене: ' + str(
             df['high'][-2]) + ' со стопом ' + str(df['low'][-2:].min()) + '**'
     else:
-        annot_str = annot_str + 'В рамках данной стратегии остаемся вне рынка, так как на большем таймфрейме наблюдается флет.'
+        annot_str = annot_str + 'В рамках данной стратегии остаемся вне рынка, так как отсутствуют сигналы по данной системе.'
 
     content = content + annot_str + '  \n'
     content = content + '![Alt text](media_url/dailyAnalysis/' + img_name + ')' + '  \n'
     current_sig_elder = df.sig_elder[-1]
+    _, _, current_sig_elder_proba = dailyanalysisprediction.predict(ticker, 'sig_elder', df.index[-1].strftime("%Y-%m-%d"))
 
-    return content, current_sig_elder
+    return content, current_sig_elder, current_sig_elder_proba
 
 
 def channelanalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_show_figs, ftp):
@@ -528,26 +538,28 @@ def channelanalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_show_f
     # ********************************
     # отмечаем интересные зоны на графике
     annotations = []
-    df_ann = df[-20:]
-    for index, row in df_fig[df_fig['DivBar'] != 0].iterrows():
+    df_ann = df[-10:]
+    for index, row in df_ann[df_ann['DivBar'] != 0].iterrows():
         annotations.append(
             dict(x=index, y=row['high'], xref='x', yref='y', showarrow=True, xanchor='left', text='DivBar'))
+    for index, row in df_ann[df_ann['ShootingStar'] < 0].iterrows():
+        annotations.append(
+            dict(x=index, y=row['low'], xref='x', yref='y', showarrow=True, xanchor='left', text='ShootingStar'))
+    for index, row in df_ann[df_ann['Hummer'] > 0].iterrows():
+        annotations.append(
+            dict(x=index, y=row['high'], xref='x', yref='y', showarrow=True, xanchor='right', text='Hummer'))
     fig.update_layout(annotations=annotations[-5:])
 
     # ********************************
     # финальная настройка layout
     fig.update_yaxes(title_text="График цены", row=1, col=1)
     fig.update_yaxes(title_text="CCI", row=2, col=1)
-    fig.update_xaxes(rangebreaks=[dict(bounds=["sat", "mon"]), holydays])
-    fig.update_layout(height=800, width=1000, xaxis_rangeslider_visible=False)
-
-    if is_show_figs:
-        fig.show()
+    fig = pts_layout(fig, holydays=holydays, is_show_figs=is_show_figs)
 
     img_name = ticker + "_channel_" + doc_uuid + ".png"
     saveimg(img_name, image_folder, fig, ftp)
 
-    content = '###Стратегия: Система канала  \n'
+    content = '###Стратегия: Система канала {: .color-primary}  \n'
 
     annot_str = ''
     if df['sig_channel'][-1] < 0:
@@ -562,8 +574,9 @@ def channelanalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_show_f
     content = content + annot_str + '  \n'
     content = content + '![Alt text](media_url/dailyAnalysis/' + img_name + ')' + '  \n'
     current_sig_channel = df.sig_channel[-1]
+    _, _, current_sig_channel_proba = dailyanalysisprediction.predict(ticker, 'sig_channel', df.index[-1].strftime("%Y-%m-%d"))
 
-    return content, current_sig_channel
+    return content, current_sig_channel, current_sig_channel_proba
 
 
 def divbaranalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_show_figs, ftp):
@@ -620,11 +633,7 @@ def divbaranalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_show_fi
     # финальная настройка layout
     fig.update_yaxes(title_text="График цены", row=1, col=1)
     fig.update_yaxes(title_text="%Williams", row=2, col=1)
-    fig.update_xaxes(rangebreaks=[dict(bounds=["sat", "mon"]), holydays])
-    fig.update_layout(height=800, width=1000, xaxis_rangeslider_visible=False)
-
-    if is_show_figs:
-        fig.show()
+    fig = pts_layout(fig, holydays=holydays, is_show_figs=is_show_figs)
 
     img_name = ticker + "_divbar_" + doc_uuid + ".png"
     saveimg(img_name, image_folder, fig, ftp)
@@ -635,12 +644,12 @@ def divbaranalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_show_fi
     # Расчет линии регрессии за последние 8 баров
     df_shortma_reg_8, df_shortma_ugol_8 = preprocessing.RegAngleLine(df_fig.MA_slow, 8)
 
-    content = '###Стратегия: Дивергентный бар  \n'
+    content = '###Стратегия: Дивергентный бар {: .color-primary}  \n'
 
     annot_str = ''
-    annot_str = annot_str + 'Угол наклона линии регрессии цены составляет ' + str(round(df_short_ugol_8)) + 'градусов, '
+    annot_str = annot_str + 'Угол наклона линии регрессии цены составляет ' + str(round(df_short_ugol_8)) + ' градусов, '
     annot_str = annot_str + 'угол наклона линии регрессии скользящей средней составляет ' + str(
-        round(df_shortma_ugol_8)) + 'градусов. '
+        round(df_shortma_ugol_8)) + ' градусов. '
     if df.sig_DivBar[-1] < 0:
         annot_str = annot_str + 'Есть дивергенция между скользящей средней и ценой. '
         annot_str = annot_str + '**Присутствует дивергентный бар на продажу, выставляем стоп ордер на продажу по цене ' + str(
@@ -654,8 +663,10 @@ def divbaranalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_show_fi
     content = content + annot_str + '  \n'
     content = content + '![Alt text](media_url/dailyAnalysis/' + img_name + ')' + '  \n'
     current_sig_DivBar = df.sig_DivBar[-1]
+    _, _, current_sig_DivBar_proba = dailyanalysisprediction.predict(ticker, 'sig_DivBar',
+                                                                df.index[-1].strftime("%Y-%m-%d"))
 
-    return content, current_sig_DivBar
+    return content, current_sig_DivBar, current_sig_DivBar_proba
 
 
 def volatilityanalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_show_figs, ftp):
@@ -724,16 +735,12 @@ def volatilityanalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_sho
     # финальная настройка layout
     fig.update_yaxes(title_text="График цены", row=1, col=1)
     fig.update_yaxes(title_text="MACD", row=2, col=1)
-    fig.update_xaxes(rangebreaks=[dict(bounds=["sat", "mon"]), holydays])
-    fig.update_layout(height=800, width=1000, xaxis_rangeslider_visible=False)
-
-    if is_show_figs:
-        fig.show()
+    fig = pts_layout(fig, holydays=holydays, is_show_figs=is_show_figs)
 
     img_name = ticker + "_volatility_" + doc_uuid + ".png"
     saveimg(img_name, image_folder, fig, ftp)
 
-    content = '###Стратегия: Прорыв волатильности  \n'
+    content = '###Стратегия: Прорыв волатильности {: .color-primary}  \n'
 
     annot_str = ''
     annot_str = annot_str + 'Угол наклона линии регрессии цены составляет ' + str(
@@ -741,15 +748,16 @@ def volatilityanalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_sho
     if df_short_ugol_35 > -12 and df_short_ugol_35 < 12:
         annot_str = annot_str + 'Направление линии регрессии почти горизонтальное.'
 
-    annot_str = annot_str + '(!Потом убрать раздел)Дисперсия составляет: ' + str(
-        round(np.var(df.close[-15:]))) + '. '
+    annot_str = annot_str + ' Дисперсия цены составляет ' + str(
+        round(np.var(df.close[-15:]), 2))
     if np.var(df.close[-15:]) < (df.close[-1] * 0.1):
-        annot_str = annot_str + 'А это меньше 10% текущей стоимости акции за последние 15 баров' + '. '
+        annot_str = annot_str + ', а это меньше 10% текущей стоимости инструмента за последние 15 баров'
+    annot_str = annot_str + '. '
 
     if df.sig_breakVolatility[-1]:
         annot_str = annot_str + '**Ожидаем прорыв волатильности. Выставляем ордера на покупку и продажу по ценам ' + str(
             df.high[-15:-1].max()) + ' и ' + str(
-            df.low[-15:-1].min()) + ' соответственно. Стопы на противополжных границах канала **'
+            df.low[-15:-1].min()) + ' соответственно. Стопы на противополжных границах канала. **'
 
     if df.sig_NR4ID[-1]:
         annot_str = annot_str + '**Текущий бар является баром NR4/ID. Выставляем ордера на масимуме и минимуме текущего бара, ' + str(
@@ -759,13 +767,17 @@ def volatilityanalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_sho
     content = content + annot_str + '  \n'
     content = content + '![Alt text](media_url/dailyAnalysis/' + img_name + ')' + '  \n'
     current_sig_breakVolatility = df.sig_breakVolatility[-1]
+    _, _, current_sig_breakVolatility_proba = dailyanalysisprediction.predict(ticker, 'sig_breakVolatility',
+                                                              df.index[-1].strftime("%Y-%m-%d"))
     current_sig_NR4ID = df.sig_NR4ID[-1]
+    _, _, current_sig_NR4ID_proba = dailyanalysisprediction.predict(ticker, 'sig_NR4ID',
+                                                               df.index[-1].strftime("%Y-%m-%d"))
 
-    return content, current_sig_breakVolatility, current_sig_NR4ID
+    return content, current_sig_breakVolatility, current_sig_breakVolatility_proba, current_sig_NR4ID, current_sig_NR4ID_proba
 
 
 def supportanalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_show_figs, ftp):
-    content = '###Сопровождение открытых позиций  \n'
+    content = '###Сопровождение открытых позиций {: .color-primary}  \n'
     annot_str = 'В случае если **открыты длинные позиции**, в качестве стоп-лосса могут выступать:'
     content = content + annot_str + '  \n\n'
     annot_str = '* Предыдущий экстремум: ' + str(df.low[-1])
@@ -798,7 +810,7 @@ def createdailyanalysis(ticker, on_date='', is_show_figs=False):
     image_folder = config['PANDORATRADINGSOLUTION']['ImagePath']
     doc_uuid = str(uuid.uuid4())
     content = '  \n'
-    holydays = dict(values=["2020-02-24", "2020-03-09", "2020-05-01", "2020-05-11", "2020-06-12"])
+    holydays = dict(values=["2020-02-24", "2020-03-09", "2020-05-01", "2020-05-11", "2020-06-12", "2020-06-24", "2020-07-01"])
 
     df = pd.read_csv(config['PANDORA']['DataPath'] + ticker + '_processeddata.csv')
     df['date_time'] = pd.to_datetime(df.date_time)
@@ -809,18 +821,21 @@ def createdailyanalysis(ticker, on_date='', is_show_figs=False):
 
     content = content + weeklyanalysisblock(df, ticker, doc_uuid, image_folder, is_show_figs, ftp)
     content = content + dailyanalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_show_figs, ftp)
-    annotation_elder, current_sig_elder = elderanalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_show_figs, ftp)
+    annotation_elder, current_sig_elder, current_sig_elder_proba = elderanalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_show_figs, ftp)
     content = content + annotation_elder
-    annotation_channel, current_sig_channel = channelanalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_show_figs, ftp)
+    annotation_channel, current_sig_channel, current_sig_channel_proba = channelanalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_show_figs, ftp)
     content = content + annotation_channel
-    annotation_divbar, current_sig_DivBar = divbaranalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_show_figs, ftp)
+    annotation_divbar, current_sig_DivBar, current_sig_DivBar_proba = divbaranalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_show_figs, ftp)
     content = content + annotation_divbar
-    annotation_volatility, current_sig_breakVolatility, current_sig_NR4ID = volatilityanalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_show_figs, ftp)
+    annotation_volatility, current_sig_breakVolatility, current_sig_breakVolatility_proba, current_sig_NR4ID, current_sig_NR4ID_proba = volatilityanalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_show_figs, ftp)
     content = content + annotation_volatility
     annotation_support = supportanalysisblock(df, ticker, doc_uuid, image_folder, holydays, is_show_figs, ftp)
     content = content + annotation_support
 
+    #ticker_name = ptsapi.get_ticker_name(ticker)
+    #title = ticker_name + ' - технический анализ от ' + df.index[-1].strftime("%Y-%m-%d")
     title = 'Ежедневный анализ: ' + ticker + ' от ' + df.index[-1].strftime("%Y-%m-%d")
+
     # API post
     postdata = {'post': {'analysis_type_id': 1,
                          'ticker_id': ptsapi.gettickerid(ticker),
@@ -833,7 +848,12 @@ def createdailyanalysis(ticker, on_date='', is_show_figs=False):
                          'sig_channel': int(current_sig_channel),
                          'sig_DivBar': int(current_sig_DivBar),
                          'sig_NR4ID': int(current_sig_NR4ID),
-                         'sig_breakVolatility': int(current_sig_breakVolatility)
+                         'sig_breakVolatility': int(current_sig_breakVolatility_proba),
+                         'sig_elder_proba': float(current_sig_elder_proba),
+                         'sig_channel_proba': float(current_sig_channel_proba),
+                         'sig_DivBar_proba': float(current_sig_DivBar_proba),
+                         'sig_NR4ID_proba': float(current_sig_NR4ID_proba),
+                         'sig_breakVolatility_proba': float(current_sig_breakVolatility_proba)
                          }
                 }
 

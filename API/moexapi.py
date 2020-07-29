@@ -20,12 +20,9 @@ board = 'TQBR'
 
 def load(ticker, load_difference=False, interval='24'):
     #http://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/MICEXINDEXCF/dates.xml
-    response = requests.get(url_prefix +
-                            '/iss/history/engines/'+ engine +
-                            '/markets/' + market +
-                            '/boards/' + board +
-                            '/securities/' + ticker +
-                            '/dates.json')
+    url_text = url_prefix + 'iss/history/engines/'+ engine + '/markets/' + market + '/boards/' + board + '/securities/' + ticker + '/dates.json'
+    response = requests.get(url_text)
+    print('GET: {0}'.format(url_text))
     from_date = json.loads(response.text)['dates']['data'][0][0]
     till_date = json.loads(response.text)['dates']['data'][0][1]
     print('from {0} to {1} history available for {2}'.format(from_date, till_date, ticker))
@@ -48,12 +45,9 @@ def load(ticker, load_difference=False, interval='24'):
                  'till': till_date,
                  'interval': interval,
                  'start': str(s)}
-        response = requests.get(url_prefix +
-                                '/iss/history/engines/'+ engine +
-                                '/markets/' + market +
-                                '/boards/' + board +
-                                '/securities/' + ticker +
-                                '/candles.json', params)
+        url_text = url_prefix + '/iss/history/engines/'+ engine + '/markets/' + market + '/boards/' + board + '/securities/' + ticker + '/candles.json'
+        response = requests.get(url_text, params)
+        print('GET: {0}'.format(url_text))
         data=json.loads(response.text)['history']['data']
         if len(data) > 0:
             history_data = history_data.append(pd.DataFrame(data=data))
@@ -65,7 +59,7 @@ def load(ticker, load_difference=False, interval='24'):
     history_data.columns = data_cols
     history_data.drop(labels=['SHORTNAME', 'SECID', 'BOARDID', 'NUMTRADES', 'VALUE', 'LEGALCLOSEPRICE', 'WAPRICE',
                               'MARKETPRICE2', 'MARKETPRICE3', 'ADMITTEDQUOTE', 'MP2VALTRD', 'MARKETPRICE3TRADESVALUE',
-                              'ADMITTEDVALUE', 'WAVAL'],
+                              'ADMITTEDVALUE', 'WAVAL', 'TRADINGSESSION'],
                       axis=1,
                       inplace=True)
     history_data['TRADEDATE'] = pd.to_datetime(history_data.TRADEDATE)

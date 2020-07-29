@@ -212,7 +212,7 @@ def sig_channel(BBTouch, CCIDiv_short, CCIDiv_long):
         if d.iloc[i, 0] < 0 and (d.iloc[i, 1] < 0 or d.iloc[i, 2] < 0):
             d.iloc[i, 3] = -1
         if d.iloc[i, 0] > 0 and (d.iloc[i, 1] > 0 or d.iloc[i, 2] > 0):
-            d.iloc[i, 2] = 1
+            d.iloc[i, 3] = 1
         i += 1
 
     return d.sig_channel
