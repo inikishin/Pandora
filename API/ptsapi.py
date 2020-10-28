@@ -5,7 +5,13 @@ import configparser
 config = configparser.ConfigParser()
 config.read('/home/ilya/PycharmProjects/Pandora/settings.ini')
 
-def gettickerid(ticker):
+def get_ticker_id(ticker):
+    '''
+    Get ticker id from site
+
+    :param ticker: short ticker name string, like 'GAZP'
+    :return: id int
+    '''
     if config['PANDORATRADINGSOLUTION']['test_env'] == 'False':
         url = config['PANDORATRADINGSOLUTION']['url']
     else:
@@ -21,6 +27,12 @@ def gettickerid(ticker):
     return ticker_id
 
 def get_ticker_name(ticker):
+    '''
+    Get ticker full name from site
+
+    :param ticker: short ticker name string, like 'GAZP'
+    :return: full name str
+    '''
     if config['PANDORATRADINGSOLUTION']['test_env'] == 'False':
         url = config['PANDORATRADINGSOLUTION']['url']
     else:

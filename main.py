@@ -15,9 +15,11 @@ config.read('/home/ilya/PycharmProjects/Pandora/settings.ini')
 ticker_list = pd.read_csv(config['PANDORA']['DataPath'] + 'ticker_list.csv')
 
 # data analysis
-is_load = True
-is_preprocessing = True
+is_load = False
+is_preprocessing = False
 is_createdaily = True
+# Creating daily analysises
+dates = ['2020-10-27']
 
 # machine learning
 fit_da_models = False
@@ -25,6 +27,8 @@ fit_prediction_models = False
 
 post_predict_daily = False
 post_predict_weekly = False
+predict_on_date = '2020-10-19'
+#predict_on_date = datetime.now().strftime("%Y-%m-%d")
 
 # Loading data from MOEX
 if is_load:
@@ -39,9 +43,6 @@ if is_preprocessing:
         preprocessing.preprocessing_daily(t)
         print(t + ' ready')
     print('Preprocessing done!')
-
-# Creating daily analysises
-dates = ['2020-07-28']
 
 if is_createdaily:
     for t in ticker_list.ticker:
@@ -72,12 +73,10 @@ if post_predict_daily:
     for t in ticker_list.ticker:
         horizon = ['1w', '2w']
         for h in horizon:
-            #prediction.postPredict(t, h, datetime.now().strftime("%Y-%m-%d"))
-            prediction.postPredict(t, h, '2020-07-24')
+            prediction.postPredict(t, h, predict_on_date)
 
 if post_predict_weekly:
     for t in ticker_list.ticker:
         horizon = ['1m', '3m', '6m', '1y']
         for h in horizon:
-            #prediction.postPredict(t, h, datetime.now().strftime("%Y-%m-%d"))
-            prediction.postPredict(t, h, '2020-07-24')
+            prediction.postPredict(t, h, predict_on_date)

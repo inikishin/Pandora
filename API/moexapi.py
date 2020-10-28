@@ -19,10 +19,18 @@ market = 'shares'
 board = 'TQBR'
 
 def load(ticker, load_difference=False, interval='24'):
+    '''
+    Loading qoutes from MOEX
+
+    :param ticker: ticker short name in string
+    :param load_difference: if True then loading qoutes between last date in history file and current date, else full history
+    :param interval: 24 - daily
+    :return: text 'success'
+    '''
+
     #http://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/MICEXINDEXCF/dates.xml
     url_text = url_prefix + 'iss/history/engines/'+ engine + '/markets/' + market + '/boards/' + board + '/securities/' + ticker + '/dates.json'
     response = requests.get(url_text)
-    print('GET: {0}'.format(url_text))
     from_date = json.loads(response.text)['dates']['data'][0][0]
     till_date = json.loads(response.text)['dates']['data'][0][1]
     print('from {0} to {1} history available for {2}'.format(from_date, till_date, ticker))
@@ -47,7 +55,6 @@ def load(ticker, load_difference=False, interval='24'):
                  'start': str(s)}
         url_text = url_prefix + '/iss/history/engines/'+ engine + '/markets/' + market + '/boards/' + board + '/securities/' + ticker + '/candles.json'
         response = requests.get(url_text, params)
-        print('GET: {0}'.format(url_text))
         data=json.loads(response.text)['history']['data']
         if len(data) > 0:
             history_data = history_data.append(pd.DataFrame(data=data))

@@ -288,7 +288,7 @@ def postPredict(ticker, horizon, predictdate):
 
     # API post
     predictdata = {'prediction': {'horizon_id': ptsapi.gethorizonid(horizon),
-                                'ticker_id': ptsapi.gettickerid(ticker),
+                                'ticker_id': ptsapi.get_ticker_id(ticker),
                                 'created': predictdate,
                                 'currentprice': float(currentprice),
                                 'predictprice': float(predictprice),
