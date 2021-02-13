@@ -3,7 +3,7 @@ import json
 import configparser
 
 config = configparser.ConfigParser()
-config.read('/home/ilya/PycharmProjects/Pandora/settings.ini')
+config.read('settings.ini')
 
 def get_ticker_id(ticker):
     '''

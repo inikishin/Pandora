@@ -10,7 +10,7 @@ import configparser
 import os.path
 
 config = configparser.ConfigParser()
-config.read('/home/ilya/PycharmProjects/Pandora/settings.ini')
+config.read('settings.ini')
 
 # Additional functions
 
@@ -53,15 +53,15 @@ def create_delta_target_feature(df, shift, sig_type, sig_value=0, sig_perc=0):
 
 # Core functions
 
-def fitpredictionmodel(ticker, tickers, signal, shift, detailedresults=False):
+def fitpredictionmodel(market, ticker, tickers, signal, shift, detailedresults=False):
     DataPath = config['PANDORA']['DataPath']
     ModelsPath = config['PANDORA']['ModelsPath']
 
     # fit Classifier
     print('\nFit Classifier: \n')
     t_df_list = []
-    for t in tickers:
-        t_df_list.append(pd.read_csv(DataPath + t + '_processeddata.csv'))
+    for t in tickers.to_numpy():
+        t_df_list.append(pd.read_csv(DataPath + t[0] + '/' + t[1] + '_processeddata.csv'))
     df_s = pd.concat(t_df_list)
 
     df_s['date_time'] = pd.to_datetime(df_s.date_time)
@@ -70,24 +70,24 @@ def fitpredictionmodel(ticker, tickers, signal, shift, detailedresults=False):
     if get_sig_type(signal) == 'undirect':
         df_clf = addfeatures_clf(df_s, signal)
         x_train_cls, x_test_cls, y_train_cls, y_test_cls = preparedata_clf(df_clf,
-                                                                           tickers,
+                                                                           tickers.ticker,
                                                                            shift,
                                                                            get_sig_type(signal))
-        fitclassifier(ticker, tickers, signal, x_train_cls, x_test_cls, y_train_cls, y_test_cls,
+        fitclassifier(ticker, tickers.ticker, signal, x_train_cls, x_test_cls, y_train_cls, y_test_cls,
                       ModelsPath, detailedresults=detailedresults)
     elif get_sig_type(signal) == 'direct':
         for d in ['buy', 'sell']:
             df_clf = addfeatures_clf(df_s, signal, direct=d)
             x_train_cls, x_test_cls, y_train_cls, y_test_cls = preparedata_clf(df_clf,
-                                                                               tickers,
+                                                                               tickers.ticker,
                                                                                shift,
                                                                                get_sig_type(signal))
-            fitclassifier(ticker, tickers, signal, x_train_cls, x_test_cls, y_train_cls, y_test_cls,
+            fitclassifier(ticker, tickers.ticker, signal, x_train_cls, x_test_cls, y_train_cls, y_test_cls,
                           ModelsPath, detailedresults=detailedresults, direct=d)
 
     # fit Regressor
     print('\nFit Regressor: \n')
-    df = pd.read_csv(DataPath + ticker + '_processeddata.csv')
+    df = pd.read_csv(DataPath + market + '/' + ticker + '_processeddata.csv')
     df['date_time'] = pd.to_datetime(df.date_time)
     df = df.set_index('date_time')
     df_reg = addfeatures_reg(df, signal)
@@ -98,11 +98,11 @@ def fitpredictionmodel(ticker, tickers, signal, shift, detailedresults=False):
     return 'Model successfully fitted!'
 
 
-def predict(ticker, signal, predictdate, tickers=[]):
+def predict(market, ticker, signal, predictdate, tickers=[]):
     DataPath = config['PANDORA']['DataPath']
     ModelsPath = config['PANDORA']['ModelsPath']
 
-    df = pd.read_csv(DataPath + ticker + '_processeddata.csv')
+    df = pd.read_csv(DataPath + market + '/' + ticker + '_processeddata.csv')
     df['date_time'] = pd.to_datetime(df.date_time)
     df = df.set_index('date_time')
 

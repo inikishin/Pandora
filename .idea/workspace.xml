@@ -26,9 +26,430 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="583ad5d5-5eb1-4691-b70d-f062715bab78" name="Default Changelist" comment="19.06.2020 many changes">
+      <change afterPath="$PROJECT_DIR$/Notebooks/Генерация текста с помощью RNN.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/dicts/holydays.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/usage/folder structure.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/preprocessing/loadfile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/ext_libs/TA_Lib-0.4.19-cp37-cp37m-win_amd64.whl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/ext_libs/TA_Lib-0.4.19-cp38-cp38-win_amd64.whl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/any_tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webapp/static/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webapp/static/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webapp/static/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webapp/webapp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Pandora.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Pandora.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testunit.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/moexapi.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/moexapi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ptsapi.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/ptsapi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notebooks/.ipynb_checkpoints/Plotly charts &amp; analysis-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Notebooks/.ipynb_checkpoints/Plotly charts &amp; analysis-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notebooks/Plotly charts &amp; analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Notebooks/Plotly charts &amp; analysis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ALRS_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/moex/ALRS_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ALRS_processeddata.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/FIVE_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/moex/FIVE_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/FIVE_processeddata.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/GAZP_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/moex/GAZP_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/GAZP_processeddata.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/GMKN_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/moex/GMKN_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/GMKN_processeddata.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/LKOH_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/moex/LKOH_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/LKOH_processeddata.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/MGNT_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/moex/MGNT_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/MGNT_processeddata.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/MTSS_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/moex/MTSS_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/MTSS_processeddata.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/NLMK_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/moex/NLMK_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/NLMK_processeddata.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/NVTK_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/moex/NVTK_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/NVTK_processeddata.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/PLZL_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/moex/PLZL_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/PLZL_processeddata.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ROSN_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/moex/ROSN_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ROSN_processeddata.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/SBER_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/moex/SBER_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/SBER_processeddata.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/SNGS_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/moex/SNGS_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/SNGS_processeddata.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/TATN_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/moex/TATN_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/TATN_processeddata.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/YNDX_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/moex/YNDX_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/YNDX_processeddata.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ticker_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/ticker_list.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ALRS-1m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ALRS-1m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ALRS-1m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ALRS-1m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ALRS-1w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ALRS-1w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ALRS-1w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ALRS-1w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ALRS-1y-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ALRS-1y-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ALRS-1y-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ALRS-1y-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ALRS-2w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ALRS-2w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ALRS-2w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ALRS-2w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ALRS-3m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ALRS-3m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ALRS-3m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ALRS-3m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ALRS-6m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ALRS-6m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ALRS-6m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ALRS-6m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ALRS-sig_DivBar-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ALRS-sig_DivBar-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ALRS-sig_DivBar-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ALRS-sig_DivBar-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ALRS-sig_DivBar-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ALRS-sig_DivBar-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ALRS-sig_NR4ID-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ALRS-sig_NR4ID-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ALRS-sig_NR4ID-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ALRS-sig_NR4ID-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ALRS-sig_breakVolatility-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ALRS-sig_breakVolatility-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ALRS-sig_breakVolatility-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ALRS-sig_breakVolatility-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ALRS-sig_channel-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ALRS-sig_channel-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ALRS-sig_channel-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ALRS-sig_channel-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ALRS-sig_channel-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ALRS-sig_channel-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ALRS-sig_elder-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ALRS-sig_elder-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ALRS-sig_elder-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ALRS-sig_elder-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ALRS-sig_elder-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ALRS-sig_elder-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/FIVE-1m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/FIVE-1m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/FIVE-1m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/FIVE-1m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/FIVE-1w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/FIVE-1w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/FIVE-1w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/FIVE-1w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/FIVE-2w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/FIVE-2w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/FIVE-2w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/FIVE-2w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/FIVE-sig_DivBar-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/FIVE-sig_DivBar-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/FIVE-sig_DivBar-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/FIVE-sig_DivBar-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/FIVE-sig_DivBar-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/FIVE-sig_DivBar-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/FIVE-sig_NR4ID-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/FIVE-sig_NR4ID-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/FIVE-sig_NR4ID-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/FIVE-sig_NR4ID-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/FIVE-sig_breakVolatility-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/FIVE-sig_breakVolatility-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/FIVE-sig_breakVolatility-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/FIVE-sig_breakVolatility-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/FIVE-sig_channel-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/FIVE-sig_channel-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/FIVE-sig_channel-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/FIVE-sig_channel-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/FIVE-sig_channel-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/FIVE-sig_channel-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/FIVE-sig_elder-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/FIVE-sig_elder-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/FIVE-sig_elder-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/FIVE-sig_elder-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/FIVE-sig_elder-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/FIVE-sig_elder-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GAZP-1m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GAZP-1m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GAZP-1m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GAZP-1m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GAZP-1w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GAZP-1w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GAZP-1w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GAZP-1w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GAZP-1y-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GAZP-1y-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GAZP-1y-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GAZP-1y-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GAZP-2w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GAZP-2w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GAZP-2w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GAZP-2w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GAZP-3m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GAZP-3m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GAZP-3m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GAZP-3m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GAZP-6m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GAZP-6m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GAZP-6m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GAZP-6m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GAZP-sig_DivBar-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GAZP-sig_DivBar-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GAZP-sig_DivBar-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GAZP-sig_DivBar-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GAZP-sig_DivBar-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GAZP-sig_DivBar-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GAZP-sig_NR4ID-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GAZP-sig_NR4ID-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GAZP-sig_NR4ID-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GAZP-sig_NR4ID-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GAZP-sig_breakVolatility-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GAZP-sig_breakVolatility-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GAZP-sig_breakVolatility-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GAZP-sig_breakVolatility-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GAZP-sig_channel-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GAZP-sig_channel-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GAZP-sig_channel-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GAZP-sig_channel-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GAZP-sig_channel-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GAZP-sig_channel-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GAZP-sig_elder-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GAZP-sig_elder-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GAZP-sig_elder-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GAZP-sig_elder-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GAZP-sig_elder-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GAZP-sig_elder-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GMKN-1m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GMKN-1m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GMKN-1m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GMKN-1m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GMKN-1w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GMKN-1w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GMKN-1w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GMKN-1w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GMKN-1y-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GMKN-1y-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GMKN-1y-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GMKN-1y-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GMKN-2w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GMKN-2w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GMKN-2w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GMKN-2w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GMKN-3m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GMKN-3m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GMKN-3m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GMKN-3m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GMKN-6m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GMKN-6m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GMKN-6m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GMKN-6m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GMKN-sig_DivBar-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GMKN-sig_DivBar-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GMKN-sig_DivBar-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GMKN-sig_DivBar-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GMKN-sig_DivBar-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GMKN-sig_DivBar-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GMKN-sig_NR4ID-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GMKN-sig_NR4ID-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GMKN-sig_NR4ID-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GMKN-sig_NR4ID-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GMKN-sig_breakVolatility-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GMKN-sig_breakVolatility-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GMKN-sig_breakVolatility-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GMKN-sig_breakVolatility-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GMKN-sig_channel-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GMKN-sig_channel-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GMKN-sig_channel-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GMKN-sig_channel-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GMKN-sig_channel-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GMKN-sig_channel-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GMKN-sig_elder-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GMKN-sig_elder-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GMKN-sig_elder-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GMKN-sig_elder-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GMKN-sig_elder-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/GMKN-sig_elder-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LKOH-1m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/LKOH-1m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LKOH-1m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/LKOH-1m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LKOH-1w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/LKOH-1w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LKOH-1w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/LKOH-1w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LKOH-1y-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/LKOH-1y-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LKOH-1y-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/LKOH-1y-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LKOH-2w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/LKOH-2w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LKOH-2w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/LKOH-2w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LKOH-3m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/LKOH-3m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LKOH-3m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/LKOH-3m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LKOH-6m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/LKOH-6m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LKOH-6m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/LKOH-6m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LKOH-sig_DivBar-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/LKOH-sig_DivBar-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LKOH-sig_DivBar-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/LKOH-sig_DivBar-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LKOH-sig_DivBar-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/LKOH-sig_DivBar-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LKOH-sig_NR4ID-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/LKOH-sig_NR4ID-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LKOH-sig_NR4ID-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/LKOH-sig_NR4ID-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LKOH-sig_breakVolatility-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/LKOH-sig_breakVolatility-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LKOH-sig_breakVolatility-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/LKOH-sig_breakVolatility-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LKOH-sig_channel-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/LKOH-sig_channel-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LKOH-sig_channel-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/LKOH-sig_channel-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LKOH-sig_channel-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/LKOH-sig_channel-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LKOH-sig_elder-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/LKOH-sig_elder-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LKOH-sig_elder-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/LKOH-sig_elder-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LKOH-sig_elder-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/LKOH-sig_elder-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MGNT-1m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MGNT-1m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MGNT-1m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MGNT-1m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MGNT-1w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MGNT-1w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MGNT-1w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MGNT-1w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MGNT-1y-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MGNT-1y-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MGNT-1y-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MGNT-1y-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MGNT-2w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MGNT-2w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MGNT-2w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MGNT-2w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MGNT-3m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MGNT-3m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MGNT-3m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MGNT-3m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MGNT-6m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MGNT-6m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MGNT-6m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MGNT-6m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MGNT-sig_DivBar-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MGNT-sig_DivBar-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MGNT-sig_DivBar-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MGNT-sig_DivBar-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MGNT-sig_DivBar-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MGNT-sig_DivBar-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MGNT-sig_NR4ID-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MGNT-sig_NR4ID-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MGNT-sig_NR4ID-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MGNT-sig_NR4ID-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MGNT-sig_breakVolatility-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MGNT-sig_breakVolatility-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MGNT-sig_breakVolatility-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MGNT-sig_breakVolatility-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MGNT-sig_channel-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MGNT-sig_channel-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MGNT-sig_channel-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MGNT-sig_channel-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MGNT-sig_channel-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MGNT-sig_channel-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MGNT-sig_elder-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MGNT-sig_elder-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MGNT-sig_elder-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MGNT-sig_elder-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MGNT-sig_elder-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MGNT-sig_elder-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MTSS-1m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MTSS-1m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MTSS-1m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MTSS-1m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MTSS-1w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MTSS-1w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MTSS-1w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MTSS-1w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MTSS-1y-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MTSS-1y-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MTSS-1y-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MTSS-1y-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MTSS-2w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MTSS-2w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MTSS-2w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MTSS-2w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MTSS-3m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MTSS-3m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MTSS-3m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MTSS-3m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MTSS-6m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MTSS-6m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MTSS-6m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MTSS-6m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MTSS-sig_DivBar-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MTSS-sig_DivBar-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MTSS-sig_DivBar-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MTSS-sig_DivBar-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MTSS-sig_DivBar-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MTSS-sig_DivBar-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MTSS-sig_NR4ID-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MTSS-sig_NR4ID-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MTSS-sig_NR4ID-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MTSS-sig_NR4ID-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MTSS-sig_breakVolatility-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MTSS-sig_breakVolatility-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MTSS-sig_breakVolatility-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MTSS-sig_breakVolatility-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MTSS-sig_channel-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MTSS-sig_channel-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MTSS-sig_channel-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MTSS-sig_channel-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MTSS-sig_channel-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MTSS-sig_channel-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MTSS-sig_elder-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MTSS-sig_elder-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MTSS-sig_elder-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MTSS-sig_elder-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MTSS-sig_elder-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/MTSS-sig_elder-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NLMK-1m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NLMK-1m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NLMK-1m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NLMK-1m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NLMK-1w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NLMK-1w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NLMK-1w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NLMK-1w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NLMK-1y-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NLMK-1y-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NLMK-1y-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NLMK-1y-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NLMK-2w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NLMK-2w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NLMK-2w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NLMK-2w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NLMK-3m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NLMK-3m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NLMK-3m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NLMK-3m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NLMK-6m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NLMK-6m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NLMK-6m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NLMK-6m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NLMK-sig_DivBar-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NLMK-sig_DivBar-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NLMK-sig_DivBar-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NLMK-sig_DivBar-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NLMK-sig_DivBar-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NLMK-sig_DivBar-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NLMK-sig_NR4ID-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NLMK-sig_NR4ID-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NLMK-sig_NR4ID-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NLMK-sig_NR4ID-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NLMK-sig_breakVolatility-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NLMK-sig_breakVolatility-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NLMK-sig_breakVolatility-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NLMK-sig_breakVolatility-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NLMK-sig_channel-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NLMK-sig_channel-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NLMK-sig_channel-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NLMK-sig_channel-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NLMK-sig_channel-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NLMK-sig_channel-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NLMK-sig_elder-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NLMK-sig_elder-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NLMK-sig_elder-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NLMK-sig_elder-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NLMK-sig_elder-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NLMK-sig_elder-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NVTK-1m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NVTK-1m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NVTK-1m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NVTK-1m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NVTK-1w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NVTK-1w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NVTK-1w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NVTK-1w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NVTK-1y-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NVTK-1y-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NVTK-1y-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NVTK-1y-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NVTK-2w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NVTK-2w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NVTK-2w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NVTK-2w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NVTK-3m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NVTK-3m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NVTK-3m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NVTK-3m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NVTK-6m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NVTK-6m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NVTK-6m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NVTK-6m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NVTK-sig_DivBar-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NVTK-sig_DivBar-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NVTK-sig_DivBar-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NVTK-sig_DivBar-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NVTK-sig_DivBar-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NVTK-sig_DivBar-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NVTK-sig_NR4ID-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NVTK-sig_NR4ID-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NVTK-sig_NR4ID-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NVTK-sig_NR4ID-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NVTK-sig_breakVolatility-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NVTK-sig_breakVolatility-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NVTK-sig_breakVolatility-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NVTK-sig_breakVolatility-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NVTK-sig_channel-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NVTK-sig_channel-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NVTK-sig_channel-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NVTK-sig_channel-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NVTK-sig_channel-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NVTK-sig_channel-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NVTK-sig_elder-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NVTK-sig_elder-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NVTK-sig_elder-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NVTK-sig_elder-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NVTK-sig_elder-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/NVTK-sig_elder-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PLZL-1m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/PLZL-1m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PLZL-1m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/PLZL-1m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PLZL-1w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/PLZL-1w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PLZL-1w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/PLZL-1w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PLZL-1y-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/PLZL-1y-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PLZL-1y-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/PLZL-1y-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PLZL-2w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/PLZL-2w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PLZL-2w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/PLZL-2w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PLZL-3m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/PLZL-3m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PLZL-3m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/PLZL-3m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PLZL-6m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/PLZL-6m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PLZL-6m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/PLZL-6m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PLZL-sig_DivBar-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/PLZL-sig_DivBar-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PLZL-sig_DivBar-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/PLZL-sig_DivBar-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PLZL-sig_DivBar-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/PLZL-sig_DivBar-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PLZL-sig_NR4ID-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/PLZL-sig_NR4ID-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PLZL-sig_NR4ID-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/PLZL-sig_NR4ID-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PLZL-sig_breakVolatility-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/PLZL-sig_breakVolatility-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PLZL-sig_breakVolatility-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/PLZL-sig_breakVolatility-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PLZL-sig_channel-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/PLZL-sig_channel-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PLZL-sig_channel-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/PLZL-sig_channel-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PLZL-sig_channel-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/PLZL-sig_channel-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PLZL-sig_elder-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/PLZL-sig_elder-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PLZL-sig_elder-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/PLZL-sig_elder-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PLZL-sig_elder-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/PLZL-sig_elder-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ROSN-1m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ROSN-1m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ROSN-1m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ROSN-1m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ROSN-1w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ROSN-1w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ROSN-1w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ROSN-1w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ROSN-1y-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ROSN-1y-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ROSN-1y-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ROSN-1y-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ROSN-2w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ROSN-2w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ROSN-2w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ROSN-2w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ROSN-3m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ROSN-3m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ROSN-3m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ROSN-3m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ROSN-6m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ROSN-6m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ROSN-6m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ROSN-6m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ROSN-sig_DivBar-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ROSN-sig_DivBar-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ROSN-sig_DivBar-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ROSN-sig_DivBar-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ROSN-sig_DivBar-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ROSN-sig_DivBar-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ROSN-sig_NR4ID-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ROSN-sig_NR4ID-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ROSN-sig_NR4ID-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ROSN-sig_NR4ID-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ROSN-sig_breakVolatility-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ROSN-sig_breakVolatility-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ROSN-sig_breakVolatility-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ROSN-sig_breakVolatility-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ROSN-sig_channel-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ROSN-sig_channel-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ROSN-sig_channel-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ROSN-sig_channel-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ROSN-sig_channel-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ROSN-sig_channel-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ROSN-sig_elder-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ROSN-sig_elder-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ROSN-sig_elder-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ROSN-sig_elder-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ROSN-sig_elder-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/ROSN-sig_elder-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SBER-1m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SBER-1m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SBER-1m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SBER-1m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SBER-1w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SBER-1w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SBER-1w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SBER-1w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SBER-1y-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SBER-1y-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SBER-1y-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SBER-1y-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SBER-2w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SBER-2w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SBER-2w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SBER-2w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SBER-3m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SBER-3m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SBER-3m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SBER-3m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SBER-6m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SBER-6m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SBER-6m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SBER-6m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SBER-sig_DivBar-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SBER-sig_DivBar-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SBER-sig_DivBar-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SBER-sig_DivBar-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SBER-sig_DivBar-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SBER-sig_DivBar-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SBER-sig_NR4ID-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SBER-sig_NR4ID-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SBER-sig_NR4ID-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SBER-sig_NR4ID-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SBER-sig_breakVolatility-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SBER-sig_breakVolatility-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SBER-sig_breakVolatility-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SBER-sig_breakVolatility-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SBER-sig_channel-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SBER-sig_channel-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SBER-sig_channel-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SBER-sig_channel-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SBER-sig_channel-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SBER-sig_channel-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SBER-sig_elder-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SBER-sig_elder-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SBER-sig_elder-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SBER-sig_elder-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SBER-sig_elder-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SBER-sig_elder-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SNGS-1m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SNGS-1m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SNGS-1m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SNGS-1m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SNGS-1w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SNGS-1w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SNGS-1w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SNGS-1w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SNGS-1y-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SNGS-1y-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SNGS-1y-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SNGS-1y-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SNGS-2w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SNGS-2w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SNGS-2w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SNGS-2w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SNGS-3m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SNGS-3m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SNGS-3m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SNGS-3m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SNGS-6m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SNGS-6m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SNGS-6m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SNGS-6m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SNGS-sig_DivBar-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SNGS-sig_DivBar-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SNGS-sig_DivBar-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SNGS-sig_DivBar-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SNGS-sig_DivBar-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SNGS-sig_DivBar-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SNGS-sig_NR4ID-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SNGS-sig_NR4ID-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SNGS-sig_NR4ID-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SNGS-sig_NR4ID-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SNGS-sig_breakVolatility-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SNGS-sig_breakVolatility-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SNGS-sig_breakVolatility-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SNGS-sig_breakVolatility-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SNGS-sig_channel-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SNGS-sig_channel-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SNGS-sig_channel-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SNGS-sig_channel-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SNGS-sig_channel-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SNGS-sig_channel-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SNGS-sig_elder-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SNGS-sig_elder-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SNGS-sig_elder-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SNGS-sig_elder-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/SNGS-sig_elder-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/SNGS-sig_elder-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TATN-1m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/TATN-1m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TATN-1m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/TATN-1m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TATN-1w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/TATN-1w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TATN-1w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/TATN-1w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TATN-1y-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/TATN-1y-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TATN-1y-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/TATN-1y-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TATN-2w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/TATN-2w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TATN-2w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/TATN-2w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TATN-3m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/TATN-3m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TATN-3m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/TATN-3m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TATN-6m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/TATN-6m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TATN-6m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/TATN-6m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TATN-sig_DivBar-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/TATN-sig_DivBar-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TATN-sig_DivBar-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/TATN-sig_DivBar-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TATN-sig_DivBar-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/TATN-sig_DivBar-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TATN-sig_NR4ID-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/TATN-sig_NR4ID-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TATN-sig_NR4ID-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/TATN-sig_NR4ID-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TATN-sig_breakVolatility-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/TATN-sig_breakVolatility-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TATN-sig_breakVolatility-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/TATN-sig_breakVolatility-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TATN-sig_channel-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/TATN-sig_channel-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TATN-sig_channel-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/TATN-sig_channel-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TATN-sig_channel-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/TATN-sig_channel-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TATN-sig_elder-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/TATN-sig_elder-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TATN-sig_elder-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/TATN-sig_elder-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TATN-sig_elder-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/TATN-sig_elder-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/YNDX-1m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/YNDX-1m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/YNDX-1m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/YNDX-1m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/YNDX-1w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/YNDX-1w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/YNDX-1w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/YNDX-1w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/YNDX-1y-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/YNDX-1y-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/YNDX-1y-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/YNDX-1y-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/YNDX-2w-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/YNDX-2w-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/YNDX-2w-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/YNDX-2w-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/YNDX-3m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/YNDX-3m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/YNDX-3m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/YNDX-3m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/YNDX-6m-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/YNDX-6m-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/YNDX-6m-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/YNDX-6m-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/YNDX-sig_DivBar-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/YNDX-sig_DivBar-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/YNDX-sig_DivBar-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/YNDX-sig_DivBar-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/YNDX-sig_DivBar-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/YNDX-sig_DivBar-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/YNDX-sig_NR4ID-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/YNDX-sig_NR4ID-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/YNDX-sig_NR4ID-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/YNDX-sig_NR4ID-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/YNDX-sig_breakVolatility-both-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/YNDX-sig_breakVolatility-both-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/YNDX-sig_breakVolatility-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/YNDX-sig_breakVolatility-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/YNDX-sig_channel-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/YNDX-sig_channel-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/YNDX-sig_channel-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/YNDX-sig_channel-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/YNDX-sig_channel-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/YNDX-sig_channel-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/YNDX-sig_elder-buy-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/YNDX-sig_elder-buy-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/YNDX-sig_elder-regressor.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/YNDX-sig_elder-regressor.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/YNDX-sig_elder-sell-classifier.model" beforeDir="false" afterPath="$PROJECT_DIR$/models/YNDX-sig_elder-sell-classifier.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preprocessing/dailyAnalysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocessing/dailyAnalysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preprocessing/dailyanalysisprediction.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocessing/dailyanalysisprediction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preprocessing/prediction.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocessing/prediction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preprocessing/preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocessing/preprocessing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/settings.ini" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +459,12 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTTP Request" />
+        <option value="Jupyter Notebook" />
         <option value="Python Script" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -46,7 +472,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="MERGE" />
   </component>
-  <component name="JupyterTrust" id="e851366e-f1ce-446f-abc2-95dac77ad5ff" />
+  <component name="JupyterTrust" id="52743e01-e7e7-42bb-b702-fa8b6fb87a07" />
   <component name="ProjectId" id="1YcT5qlrSic4ZefB8hAZ3JSlJc0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -54,24 +480,378 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/source/_static" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/webapp/static" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ilya\PycharmProjects\Pandora\webapp\static" />
       <recent name="$PROJECT_DIR$/docs/source/_static" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ilya\PycharmProjects\Pandora\data\moex" />
+      <recent name="C:\Users\Ilya\PycharmProjects\Pandora\preprocessing" />
+      <recent name="C:\Users\Ilya\PycharmProjects\Pandora" />
+      <recent name="C:\Users\Ilya\PycharmProjects\Pandora\source\ext libs" />
       <recent name="$PROJECT_DIR$/data" />
     </key>
   </component>
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="marketdata.websol.barchart.com" />
+                <option name="name" value="PHPSESSID" />
+                <option name="path" value="/" />
+                <option name="value" value="faa32082ee807f62ae201bc0532e6df1" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="https://marketdata.websol.barchart.com/getHistory.json" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="apikey" />
+                <option name="value" value="31189e48485ec428a8aa7956226133ac" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="symbol" />
+                <option name="value" value="AAPL" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="type" />
+                <option name="value" value="daily" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="startDate" />
+                <option name="value" value="2019-01-11" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="order" />
+                <option name="value" value="desc" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="maxRecords" />
+                <option name="value" value="3" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="marketdata.websol.barchart.com" />
+                <option name="name" value="PHPSESSID" />
+                <option name="path" value="/" />
+                <option name="value" value="faa32082ee807f62ae201bc0532e6df1" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="https://marketdata.websol.barchart.com/getHistory.json" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="apikey" />
+                <option name="value" value="31189e48485ec428a8aa7956226133ac" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="symbol" />
+                <option name="value" value="AAPL" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="type" />
+                <option name="value" value="daily" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="startDate" />
+                <option name="value" value="2019-01-11" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="order" />
+                <option name="value" value="desc" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="marketdata.websol.barchart.com" />
+                <option name="name" value="PHPSESSID" />
+                <option name="path" value="/" />
+                <option name="value" value="faa32082ee807f62ae201bc0532e6df1" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="https://marketdata.websol.barchart.com/getHistory.json" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="apikey" />
+                <option name="value" value="31189e48485ec428a8aa7956226133ac" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="symbol" />
+                <option name="value" value="AAPL" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="type" />
+                <option name="value" value="daily" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="startDate" />
+                <option name="value" value="2019-01-11" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="marketdata.websol.barchart.com" />
+                <option name="name" value="PHPSESSID" />
+                <option name="path" value="/" />
+                <option name="value" value="faa32082ee807f62ae201bc0532e6df1" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="https://marketdata.websol.barchart.com/getHistory.json" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="apikey" />
+                <option name="value" value="31189e48485ec428a8aa7956226133ac" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="symbol" />
+                <option name="value" value="AAPL" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="type" />
+                <option name="value" value="daily" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="startDate" />
+                <option name="value" value="2019-12-01" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="marketdata.websol.barchart.com" />
+                <option name="name" value="PHPSESSID" />
+                <option name="path" value="/" />
+                <option name="value" value="faa32082ee807f62ae201bc0532e6df1" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="https://marketdata.websol.barchart.com/getHistory.json" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="apikey" />
+                <option name="value" value="31189e48485ec428a8aa7956226133ac" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="symbol" />
+                <option name="value" value="AAPL" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="type" />
+                <option name="value" value="daily" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="startDate" />
+                <option name="value" value="2020-12-01" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="marketdata.websol.barchart.com" />
+                <option name="name" value="PHPSESSID" />
+                <option name="path" value="/" />
+                <option name="value" value="faa32082ee807f62ae201bc0532e6df1" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="https://marketdata.websol.barchart.com/getHistory.json" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="apikey" />
+                <option name="value" value="31189e48485ec428a8aa7956226133ac" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="symbol" />
+                <option name="value" value="AAPL" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="type" />
+                <option name="value" value="daily" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="marketdata.websol.barchart.com" />
+                <option name="name" value="PHPSESSID" />
+                <option name="path" value="/" />
+                <option name="value" value="faa32082ee807f62ae201bc0532e6df1" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="https://marketdata.websol.barchart.com/getHistory.json" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="apikey" />
+                <option name="value" value="31189e48485ec428a8aa7956226133ac" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="symbols" />
+                <option name="value" value="AAPL" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="startDate" />
+                <option name="value" value="2020-12-01" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="marketdata.websol.barchart.com" />
+                <option name="name" value="PHPSESSID" />
+                <option name="path" value="/" />
+                <option name="value" value="faa32082ee807f62ae201bc0532e6df1" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="https://marketdata.websol.barchart.com/getQuote.json" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="apikey" />
+                <option name="value" value="31189e48485ec428a8aa7956226133ac" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="symbols" />
+                <option name="value" value="AAPL" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="startDate" />
+                <option name="value" value="2020-12-01" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="https://marketdata.websol.barchart.com/getQuote.json" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="apikey" />
+                <option name="value" value="31189e48485ec428a8aa7956226133ac" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="symbols" />
+                <option name="value" value="AAPL" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
+  </component>
   <component name="RunManager" selected="Python.main">
-    <configuration name="api_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="All in BarChart" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/API/BarChart.http">
+      <method v="2" />
+    </configuration>
+    <configuration name="BarChart#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/API/BarChart.http" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="Pandora" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -79,21 +859,21 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/api_test.py" />
+      <option name="SCRIPT_NAME" value="" />
       <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="dailyAnalysis" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="loadfile" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Pandora" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -106,31 +886,28 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/preprocessing/dailyAnalysis.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Ilya\PycharmProjects\Pandora\preprocessing\loadfile.py" />
       <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="dailyanalysisprediction" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="loadfile" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Pandora" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/preprocessing" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/preprocessing/dailyanalysisprediction.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Ilya\PycharmProjects\Pandora\preprocessing\loadfile.py" />
       <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
@@ -159,7 +936,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="testunit" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="webapp" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Pandora" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -167,14 +944,14 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/webapp" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testunit.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Ilya\PycharmProjects\Pandora\webapp\webapp.py" />
       <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
@@ -184,10 +961,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.api_test" />
-        <item itemvalue="Python.testunit" />
-        <item itemvalue="Python.dailyanalysisprediction" />
-        <item itemvalue="Python.dailyAnalysis" />
+        <item itemvalue="Python.webapp" />
+        <item itemvalue="Python.loadfile" />
+        <item itemvalue="HTTP Request.BarChart#1" />
+        <item itemvalue="HTTP Request.All in BarChart" />
       </list>
     </recent_temporary>
   </component>
@@ -213,6 +990,80 @@
       <workItem from="1603198030521" duration="1923000" />
       <workItem from="1603209940241" duration="18000" />
       <workItem from="1603881984725" duration="13439000" />
+      <workItem from="1603993590364" duration="216000" />
+      <workItem from="1603993822864" duration="2104000" />
+      <workItem from="1603995960272" duration="517000" />
+      <workItem from="1604031410751" duration="13000" />
+      <workItem from="1604034049119" duration="25000" />
+      <workItem from="1604035232637" duration="79000" />
+      <workItem from="1604041174589" duration="3304000" />
+      <workItem from="1604052862218" duration="3101000" />
+      <workItem from="1604065139294" duration="1042000" />
+      <workItem from="1604073404639" duration="5000" />
+      <workItem from="1604246834372" duration="778000" />
+      <workItem from="1604426297989" duration="10000" />
+      <workItem from="1604681419368" duration="1084000" />
+      <workItem from="1604684047228" duration="21000" />
+      <workItem from="1604915269669" duration="2215000" />
+      <workItem from="1604934850545" duration="474000" />
+      <workItem from="1604935453777" duration="6265000" />
+      <workItem from="1604999948283" duration="197000" />
+      <workItem from="1605109895846" duration="1954000" />
+      <workItem from="1605118237587" duration="10000" />
+      <workItem from="1605388225013" duration="2154000" />
+      <workItem from="1606070512737" duration="41000" />
+      <workItem from="1606071581350" duration="1792000" />
+      <workItem from="1606193837043" duration="638000" />
+      <workItem from="1606278664838" duration="959000" />
+      <workItem from="1606375958423" duration="63000" />
+      <workItem from="1606409688375" duration="2263000" />
+      <workItem from="1606412662456" duration="35000" />
+      <workItem from="1606412751456" duration="532000" />
+      <workItem from="1606750718038" duration="90000" />
+      <workItem from="1606819006230" duration="1252000" />
+      <workItem from="1606903298678" duration="206000" />
+      <workItem from="1606963809440" duration="3618000" />
+      <workItem from="1606971199537" duration="1840000" />
+      <workItem from="1607001011146" duration="48000" />
+      <workItem from="1607061780984" duration="1116000" />
+      <workItem from="1607090090223" duration="11000" />
+      <workItem from="1607093550708" duration="1378000" />
+      <workItem from="1607141639438" duration="3358000" />
+      <workItem from="1607397626600" duration="1767000" />
+      <workItem from="1607444372178" duration="8000" />
+      <workItem from="1608400908266" duration="1478000" />
+      <workItem from="1608608968579" duration="1656000" />
+      <workItem from="1608638858865" duration="23000" />
+      <workItem from="1608696808775" duration="1214000" />
+      <workItem from="1608698535752" duration="45000" />
+      <workItem from="1608751904981" duration="65000" />
+      <workItem from="1608786975154" duration="623000" />
+      <workItem from="1608815288658" duration="495000" />
+      <workItem from="1608825907838" duration="9958000" />
+      <workItem from="1608868267848" duration="2496000" />
+      <workItem from="1610258556506" duration="987000" />
+      <workItem from="1610260279089" duration="870000" />
+      <workItem from="1610384802563" duration="322000" />
+      <workItem from="1610733448857" duration="6308000" />
+      <workItem from="1610741171963" duration="6000" />
+      <workItem from="1610899472790" duration="616000" />
+      <workItem from="1611091906247" duration="3444000" />
+      <workItem from="1611134794139" duration="1479000" />
+      <workItem from="1611146883862" duration="763000" />
+      <workItem from="1611204129909" duration="1439000" />
+      <workItem from="1611295686451" duration="1125000" />
+      <workItem from="1611371781398" duration="9000" />
+      <workItem from="1611423683539" duration="1533000" />
+      <workItem from="1611984482902" duration="601000" />
+      <workItem from="1612113738149" duration="95000" />
+      <workItem from="1612115070867" duration="208000" />
+      <workItem from="1612195575740" duration="12000" />
+      <workItem from="1612494728002" duration="2999000" />
+      <workItem from="1612544067073" duration="1764000" />
+      <workItem from="1612584226934" duration="7948000" />
+      <workItem from="1612633887023" duration="135000" />
+      <workItem from="1612940489122" duration="4705000" />
+      <workItem from="1613062772331" duration="20000" />
     </task>
     <task id="LOCAL-00001" summary="new notebook added">
       <created>1583315950511</created>
@@ -322,84 +1173,6 @@
     <MESSAGE value="add .gitignore" />
     <option name="LAST_COMMIT_MESSAGE" value="add .gitignore" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="687" y="354" width="603" height="396" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598636862361">
-      <screen x="67" y="27" width="1853" height="1053" />
-    </state>
-    <state x="687" y="354" width="603" height="396" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1598636862361" />
-    <state x="77" y="160" width="1843" height="528" key="#xdebugger.XInspectDialog" timestamp="1595511788665">
-      <screen x="67" y="27" width="1853" height="923" />
-    </state>
-    <state x="77" y="160" width="1843" height="528" key="#xdebugger.XInspectDialog/67.27.1853.923@67.27.1853.923" timestamp="1595511788665" />
-    <state width="480" height="506" key="DebuggerActiveHint" timestamp="1595511694524">
-      <screen x="67" y="27" width="1853" height="923" />
-    </state>
-    <state width="480" height="506" key="DebuggerActiveHint/67.27.1853.923@67.27.1853.923" timestamp="1595511694524" />
-    <state x="167" y="125" width="1653" height="855" key="DiffContextDialog" timestamp="1603901990911">
-      <screen x="67" y="27" width="1853" height="1053" />
-    </state>
-    <state x="167" y="125" width="1653" height="855" key="DiffContextDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1603901990911" />
-    <state width="1807" height="241" key="GridCell.Tab.0.bottom" timestamp="1603901990819">
-      <screen x="67" y="27" width="1853" height="1053" />
-    </state>
-    <state width="1801" height="261" key="GridCell.Tab.0.bottom/67.27.1847.913@67.27.1847.913" timestamp="1603202540406" />
-    <state width="1807" height="241" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1603901990819" />
-    <state width="1807" height="312" key="GridCell.Tab.0.bottom/67.27.1853.923@67.27.1853.923" timestamp="1603893735393" />
-    <state width="1807" height="266" key="GridCell.Tab.0.bottom/67.27.1853.925@67.27.1853.925" timestamp="1602658508739" />
-    <state width="1807" height="241" key="GridCell.Tab.0.center" timestamp="1603901990819">
-      <screen x="67" y="27" width="1853" height="1053" />
-    </state>
-    <state width="1801" height="261" key="GridCell.Tab.0.center/67.27.1847.913@67.27.1847.913" timestamp="1603202540405" />
-    <state width="1807" height="241" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1603901990819" />
-    <state width="1807" height="312" key="GridCell.Tab.0.center/67.27.1853.923@67.27.1853.923" timestamp="1603893735391" />
-    <state width="1807" height="266" key="GridCell.Tab.0.center/67.27.1853.925@67.27.1853.925" timestamp="1602658508737" />
-    <state width="1807" height="241" key="GridCell.Tab.0.left" timestamp="1603901990818">
-      <screen x="67" y="27" width="1853" height="1053" />
-    </state>
-    <state width="1801" height="261" key="GridCell.Tab.0.left/67.27.1847.913@67.27.1847.913" timestamp="1603202540405" />
-    <state width="1807" height="241" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1603901990818" />
-    <state width="1807" height="312" key="GridCell.Tab.0.left/67.27.1853.923@67.27.1853.923" timestamp="1603893735391" />
-    <state width="1807" height="266" key="GridCell.Tab.0.left/67.27.1853.925@67.27.1853.925" timestamp="1602658508736" />
-    <state width="1807" height="241" key="GridCell.Tab.0.right" timestamp="1603901990819">
-      <screen x="67" y="27" width="1853" height="1053" />
-    </state>
-    <state width="1801" height="261" key="GridCell.Tab.0.right/67.27.1847.913@67.27.1847.913" timestamp="1603202540406" />
-    <state width="1807" height="241" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1603901990819" />
-    <state width="1807" height="312" key="GridCell.Tab.0.right/67.27.1853.923@67.27.1853.923" timestamp="1603893735392" />
-    <state width="1807" height="266" key="GridCell.Tab.0.right/67.27.1853.925@67.27.1853.925" timestamp="1602658508739" />
-    <state width="1830" height="344" key="GridCell.Tab.1.bottom" timestamp="1595950201332">
-      <screen x="67" y="27" width="1853" height="923" />
-    </state>
-    <state width="1830" height="344" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1595927096638" />
-    <state width="1830" height="344" key="GridCell.Tab.1.bottom/67.27.1853.923@67.27.1853.923" timestamp="1595950201332" />
-    <state width="1830" height="344" key="GridCell.Tab.1.center" timestamp="1595950201330">
-      <screen x="67" y="27" width="1853" height="923" />
-    </state>
-    <state width="1830" height="344" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1595927096637" />
-    <state width="1830" height="344" key="GridCell.Tab.1.center/67.27.1853.923@67.27.1853.923" timestamp="1595950201330" />
-    <state width="1830" height="344" key="GridCell.Tab.1.left" timestamp="1595950201330">
-      <screen x="67" y="27" width="1853" height="923" />
-    </state>
-    <state width="1830" height="344" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1595927096636" />
-    <state width="1830" height="344" key="GridCell.Tab.1.left/67.27.1853.923@67.27.1853.923" timestamp="1595950201330" />
-    <state width="1830" height="344" key="GridCell.Tab.1.right" timestamp="1595950201331">
-      <screen x="67" y="27" width="1853" height="923" />
-    </state>
-    <state width="1830" height="344" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1595927096637" />
-    <state width="1830" height="344" key="GridCell.Tab.1.right/67.27.1853.923@67.27.1853.923" timestamp="1595950201331" />
-    <state x="588" y="256" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1596007187443">
-      <screen x="67" y="27" width="1853" height="923" />
-    </state>
-    <state x="588" y="256" key="Vcs.Push.Dialog.v2/67.27.1853.923@67.27.1853.923" timestamp="1596007187443" />
-    <state x="684" y="291" width="618" height="522" key="find.popup" timestamp="1598639726842">
-      <screen x="67" y="27" width="1853" height="1053" />
-    </state>
-    <state x="684" y="291" width="618" height="522" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1598639726842" />
-    <state x="657" y="133" width="670" height="676" key="search.everywhere.popup" timestamp="1595337980035">
-      <screen x="67" y="27" width="1853" height="923" />
-    </state>
-    <state x="657" y="133" width="670" height="676" key="search.everywhere.popup/67.27.1853.923@67.27.1853.923" timestamp="1595337980035" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -408,11 +1181,6 @@
           <line>82</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/API/ptsapi.py</url>
-          <line>65</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -420,6 +1188,7 @@
         <watch expression="r.text" language="Python" />
         <watch expression="df[signal][-1] " />
         <watch expression="bool(config['PANDORATRADINGSOLUTION']['test_env'])" language="Python" />
+        <watch expression="list(dict_mm_lines.keys())" language="Python" />
         <watch expression="config['PANDORATRADINGSOLUTION']['test_env']" language="Python" />
         <watch expression="bool('1')" language="Python" />
         <watch expression="config['PANDORATRADINGSOLUTION']['test_env'] == 'False'" />
@@ -427,6 +1196,6 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Pandora$main.coverage" NAME="main Coverage Results" MODIFIED="1603900821719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Pandora$main.coverage" NAME="main Coverage Results" MODIFIED="1612949831355" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

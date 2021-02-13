@@ -5,7 +5,7 @@ import configparser
 from sklearn.preprocessing import MinMaxScaler
 
 config = configparser.ConfigParser()
-config.read('/home/ilya/PycharmProjects/Pandora/settings.ini')
+config.read('settings.ini')
 
 # Additional features block
 
@@ -289,10 +289,9 @@ def sig_breakVolatility(df_short_ugol_35, close, perc_var=0.1):
 #Signal features endblock
 
 # Main function for create preprocessed data
-def preprocessing_daily(ticker):
-
+def preprocessing_daily(market, ticker):
     # loading data
-    df = pd.read_csv(config['PANDORA']['DataPath'] + ticker + '_data.csv')
+    df = pd.read_csv(config['PANDORA']['DataPath'] + market + '/' + ticker + '_data.csv')
     df['date_time'] = pd.to_datetime(df.date_time)
     df = df.set_index('date_time')
 
@@ -384,6 +383,6 @@ def preprocessing_daily(ticker):
     df['sig_NR4ID'] = sig_NR4ID(df.high, df.low)
     df['sig_breakVolatility'] = sig_breakVolatility(df.regAngle_35, df.close)
 
-    df.to_csv(config['PANDORA']['DataPath'] + ticker + '_processeddata.csv')
+    df.to_csv(config['PANDORA']['DataPath'] + market + '/' + ticker + '_processeddata.csv')
 
     return 'success!'

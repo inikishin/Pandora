@@ -11,7 +11,7 @@ import configparser
 
 # инициируем файл настроек
 config = configparser.ConfigParser()
-config.read('/home/ilya/PycharmProjects/Pandora/settings.ini')
+config.read('settings.ini')
 
 url_prefix = 'http://iss.moex.com/'
 engine = 'stock'
@@ -27,7 +27,8 @@ def load(ticker, load_difference=False, interval='24'):
     :param interval: 24 - daily
     :return: text 'success'
     '''
-
+    #import os
+    #print(f'Current dir: {os.path.abspath(os.curdir)}')
     #http://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/MICEXINDEXCF/dates.xml
     url_text = url_prefix + 'iss/history/engines/'+ engine + '/markets/' + market + '/boards/' + board + '/securities/' + ticker + '/dates.json'
     response = requests.get(url_text)
@@ -37,11 +38,12 @@ def load(ticker, load_difference=False, interval='24'):
 
     if load_difference:
         try:
-            df = pd.read_csv(config['PANDORA']['DataPath'] + ticker + '_data.csv')
+            df = pd.read_csv(config['PANDORA']['DataPath'] + 'moex/' + ticker + '_data.csv')
             df['date_time'] = pd.to_datetime(df.date_time)
             from_date = df['date_time'].max().strftime('%Y-%m-%d')
         except:
-            print('Error')
+            path_to_file = config['PANDORA']['DataPath'] + 'moex/' + ticker + '_data.csv'
+            print(f'Error for path: {path_to_file}')
 
     #/iss/engines/[engine]/markets/[market]/securities/[security]/candles
     history_data = pd.DataFrame()
@@ -77,7 +79,7 @@ def load(ticker, load_difference=False, interval='24'):
         history_data.drop_duplicates(subset=['date_time'], inplace=True, keep='last')
 
     history_data.dropna(inplace=True)
-    history_data.to_csv(config['PANDORA']['DataPath'] + ticker + '_data.csv', index=False)
+    history_data.to_csv(config['PANDORA']['DataPath'] + 'moex/' + ticker + '_data.csv', index=False)
     return 'success'
 
 

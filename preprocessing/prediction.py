@@ -12,14 +12,14 @@ from datetime import datetime
 import os.path
 
 config = configparser.ConfigParser()
-config.read('/home/ilya/PycharmProjects/Pandora/settings.ini')
+config.read('settings.ini')
 
 
-def fitpredictionmodel(ticker, horizon, detailedresults=False):
+def fitpredictionmodel(market, ticker, horizon, detailedresults=False):
     DataPath = config['PANDORA']['DataPath']
     ModelsPath = config['PANDORA']['ModelsPath']
 
-    df = pd.read_csv(DataPath + ticker + '_data.csv')
+    df = pd.read_csv(DataPath + market + '/' + ticker + '_data.csv')
     df['date_time'] = pd.to_datetime(df.date_time)
     df = df.set_index('date_time')
 
@@ -228,11 +228,11 @@ def fitregressor(ticker, horizon, x_train, x_test, y_train_values, y_test_values
         pickle.dump(rgs, f)
 
 
-def predict(ticker, horizon, predictdate):
+def predict(market, ticker, horizon, predictdate):
     DataPath = config['PANDORA']['DataPath']
     ModelsPath = config['PANDORA']['ModelsPath']
 
-    df = pd.read_csv(DataPath + ticker + '_data.csv')
+    df = pd.read_csv(DataPath + market + '/' + ticker + '_data.csv')
     df['date_time'] = pd.to_datetime(df.date_time)
     df = df.set_index('date_time')
     df = resampledata(df, horizon)
@@ -283,8 +283,8 @@ def predict(ticker, horizon, predictdate):
     return currentprice, predictprice, prctChange, probability
 
 
-def postPredict(ticker, horizon, predictdate):
-    currentprice, predictprice, prctChange, probability = predict(ticker, horizon, predictdate)
+def postPredict(market, ticker, horizon, predictdate):
+    currentprice, predictprice, prctChange, probability = predict(market, ticker, horizon, predictdate)
 
     # API post
     predictdata = {'prediction': {'horizon_id': ptsapi.gethorizonid(horizon),
