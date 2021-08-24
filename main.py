@@ -17,17 +17,17 @@ ticker_list = pd.read_csv(config['PANDORA']['DataPath'] + 'ticker_list.csv')
 
 # data analysis
 is_load = False
-is_preprocessing = False
+is_preprocessing = True
 is_createdaily = False
 # Creating daily analysises
-dates = ['2021-02-08', '2021-02-09' ]
+dates = ['2021-02-08', '2021-02-09']
 
 # machine learning
 fit_da_models = False
-fit_prediction_models = True
+fit_prediction_models = False
 
-post_predict_daily = True
-post_predict_weekly = True
+post_predict_daily = False
+post_predict_weekly = False
 predict_on_date = '2021-02-09'
 
 # Loading data from MOEX and folders
