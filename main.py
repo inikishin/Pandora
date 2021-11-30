@@ -3,7 +3,7 @@ import configparser
 
 import pandas as pd
 
-from API import moexapi
+from api import moex
 from preprocessing import dailyAnalysis, preprocessing, dailyanalysisprediction, prediction, loadfile
 
 # сунуть текст в DAG. Сделать два ДАГа: первый для полной загрузки (запускать руками),
@@ -33,7 +33,7 @@ predict_on_date = '2021-02-09'
 # Loading data from MOEX and folders
 if is_load:
     for t in ticker_list[ticker_list.market=='moex'].ticker:
-        moexapi.load(ticker=t, load_difference=True, interval='24')
+        moex.load(ticker=t, load_difference=True, interval='24')
     loadfile.load_files()
     print('All data loaded!')
 
