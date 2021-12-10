@@ -139,14 +139,16 @@ const MLModelFitResultsDetails = () => {
                       color="textPrimary"
                       variant="h4"
                     >
-                      {currentFitResult.fitResult.algorithm}
+                      {`Algorithm: ${currentFitResult.fitResult.algorithm}`}
+                      <br />
+                      {`Score: ${currentFitResult.fitResult.score}`}
                     </Typography>
                     <Typography
                       align="right"
                       color="textPrimary"
                       variant="subtitle2"
                     >
-                      {`Model filename: ${currentFitResult.fitResult.fit_results.filename}`}
+                      {`Model filename: ${currentFitResult.fitResult.filename}`}
                     </Typography>
                   </Grid>
                 </Grid>

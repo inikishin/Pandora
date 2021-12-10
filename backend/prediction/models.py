@@ -1,3 +1,11 @@
+"""
+Models for prediction app.
+
+Horizon - remove?
+MLModel - main ML model entity
+MLModelFitResults - fit results for each model
+
+"""
 import uuid
 from django.db import models
 from django.contrib.auth.models import User
@@ -10,6 +18,9 @@ ML_MODELS_ALGORITHMS = [
 
 
 class Horizon(models.Model):
+    """
+    Remove ???
+    """
     code = models.CharField(max_length=10, unique=True)
     description = models.CharField(max_length=1000, null=True, blank=True)
     duration = models.IntegerField(help_text='Duration in seconds')
@@ -22,16 +33,19 @@ class Horizon(models.Model):
 
 
 class MLModel(models.Model):
+    """
+    ML model db entity
+    """
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     code = models.CharField(max_length=100, unique=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     fullname = models.CharField(max_length=1000)
     description = models.CharField(max_length=1000, null=True, blank=True)
     timeframe = models.ForeignKey(Timeframe, on_delete=models.CASCADE)
     ticker = models.ForeignKey(Ticker, on_delete=models.CASCADE)
-    algorithm = models.CharField(max_length=100, choices=ML_MODELS_ALGORITHMS)
-    parameters = models.TextField()
+    algorithm = models.CharField(max_length=100, choices=ML_MODELS_ALGORITHMS, null=True, blank=True)
+    parameters = models.TextField(null=True, blank=True)
     last_fit = models.DateTimeField(null=True, blank=True)
-    fit_results = models.TextField()
-    guid = models.CharField(max_length=32, unique=True)
 
     def get_inital_parameters(self):
         return {
@@ -65,6 +79,7 @@ class MLModelFitResults(models.Model):
     fit_results = models.TextField()
     score = models.FloatField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
+    filename = models.TextField()
 
     def __repr__(self):
         return f'{self.algorithm} (id: {self.id})'

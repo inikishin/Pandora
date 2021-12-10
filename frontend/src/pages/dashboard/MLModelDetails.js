@@ -190,7 +190,7 @@ const MLModelDetails = () => {
                     timeframe={currentMlModel.mlModel.timeframe_code}
                     ticker={currentMlModel.mlModel.ticker_code}
                     lastFit={currentMlModel.mlModel.last_fit}
-                    guid={currentMlModel.mlModel.guid}
+                    guid={currentMlModel.mlModel.id}
                   />
                 </Grid>
                 <Grid

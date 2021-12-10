@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from '../../store/index';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Box, Breadcrumbs, Button, Container, Grid, Link, Typography } from '@material-ui/core';
 import useSettings from '../../hooks/useSettings';
@@ -9,15 +9,30 @@ import PlusIcon from '../../icons/Plus';
 import gtm from '../../lib/gtm';
 import MLModelListTable from '../../components/dashboard/ml-models/MLModelListTable';
 import { getMlModels } from '../../services/slices/mlModels';
+import MLModelCreateModal from '../../components/dashboard/ml-models/MLModelCreateModal';
 
 const MLModelsList = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { mlModels } = useSelector((store) => ({ ...store.mlModels }));
   const { settings } = useSettings();
+  const [isOpenMLModelCreateModal, setIsOpenMLModelCreateModal] = useState(false);
+
   useEffect(() => {
     gtm.push({ event: 'page_view' }); // TODO what is it?
-    dispatch(getMlModels());
-  }, []);
+    if (!mlModels.isDeleting) {
+      dispatch(getMlModels());
+    }
+  }, [mlModels.isDeleting]);
+
+  const handleOpenMLModelCreateModal = () => {
+    setIsOpenMLModelCreateModal(true);
+  };
+
+  const handleCloseMLModelCreateModal = (mlModelId) => {
+    setIsOpenMLModelCreateModal(false);
+    navigate(`/dashboard/ml-models/${mlModelId}`);
+  };
 
   return (
     <>
@@ -72,6 +87,7 @@ const MLModelsList = () => {
                   startIcon={<PlusIcon fontSize="small" />}
                   sx={{ m: 1 }}
                   variant="contained"
+                  onClick={handleOpenMLModelCreateModal}
                 >
                   New ML Model
                 </Button>
@@ -81,6 +97,10 @@ const MLModelsList = () => {
           <Box sx={{ mt: 3 }}>
             {mlModels.isLoading ? <div>Loading data...</div> : <MLModelListTable models={mlModels.list} />}
           </Box>
+          <MLModelCreateModal
+            open={isOpenMLModelCreateModal}
+            closeHandle={handleCloseMLModelCreateModal}
+          />
         </Container>
       </Box>
     </>

@@ -18,12 +18,14 @@ import {
   TableRow,
   Typography
 } from '@material-ui/core';
+import { useDispatch } from '../../../store/index';
+import { deleteMlModel } from '../../../services/slices/mlModels';
 import ArrowRightIcon from '../../../icons/ArrowRight';
-import PencilAltIcon from '../../../icons/PencilAlt';
 import Label from '../../Label';
 import MoreMenu from '../../MoreMenu';
 import Scrollbar from '../../Scrollbar';
 import MLModelListBulkActions from './MLModelListBulkActions';
+import TrashIcon from '../../../icons/Trash';
 
 const getStatusLabel = (paymentStatus) => {
   const map = {
@@ -58,6 +60,7 @@ const applyPagination = (orders, page, limit) => orders
   .slice(page * limit, page * limit + limit);
 
 const MLModelListTable = (props) => {
+  const dispatch = useDispatch();
   const { models, ...other } = props;
   const [selectedModels, setSelectedModels] = useState([]);
   const [page, setPage] = useState(0);
@@ -83,6 +86,10 @@ const MLModelListTable = (props) => {
 
   const handleLimitChange = (event) => {
     setLimit(parseInt(event.target.value, 10));
+  };
+
+  const handleDeleteMLModel = (event) => {
+    dispatch(deleteMlModel(event.currentTarget.id));
   };
 
   const paginatedModels = applyPagination(models, page, limit);
@@ -196,14 +203,14 @@ const MLModelListTable = (props) => {
                         {getStatusLabel('completed')}
                       </TableCell>
                       <TableCell align="right">
-                        <IconButton>
-                          <PencilAltIcon fontSize="small" />
-                        </IconButton>
                         <IconButton
                           component={RouterLink}
-                          to="/dashboard/orders/1"
+                          to={`/dashboard/ml-models/${model.id}`}
                         >
                           <ArrowRightIcon fontSize="small" />
+                        </IconButton>
+                        <IconButton onClick={handleDeleteMLModel} id={model.id}>
+                          <TrashIcon fontSize="small" />
                         </IconButton>
                       </TableCell>
                     </TableRow>

@@ -5,6 +5,7 @@ import {
   getMlModelRequest,
   getMlModelsAvailableAlgorithmsListRequest,
   postMlModelRequest,
+  deleteMlModelRequest,
   patchMlModelRequest,
   getMlModelFitResultsRequest,
   getMlModelFitResultRequest,
@@ -15,6 +16,7 @@ import {
 const initialState = {
   mlModels: {
     isLoading: false,
+    isDeleting: false,
     list: [],
     errors: {
       hasError: false,
@@ -277,13 +279,52 @@ export const slice = createSlice({
         message: action.payload
       };
     },
+    UPDATE_ML_MODEL_DETAILS(state, action) {
+      state.currentMlModel.mlModel = { ...state.currentMlModel.mlModel, ...action.payload };
+    },
+    CREATE_ML_MODEL_REQUEST(state) {
+      state.currentMlModel.isLoading = true;
+      state.currentMlModel.errors = {
+        hasError: false,
+        message: ''
+      };
+    },
+    CREATE_ML_MODEL_SUCCESS(state, action) {
+      state.currentMlModel.isLoading = false;
+      state.currentMlModel.mlModel = action.payload;
+      state.currentMlModel.mlModel.parameters = JSON.parse(action.payload.parameters);
+    },
+    CREATE_ML_MODEL_FAILED(state, action) {
+      state.currentMlModel.isLoading = false;
+      state.currentMlModel.errors = {
+        hasError: true,
+        message: action.payload
+      };
+    },
+    DELETE_ML_MODEL_REQUEST(state) {
+      state.mlModels.isDeleting = true;
+      state.mlModels.errors = {
+        hasError: false,
+        message: ''
+      };
+    },
+    DELETE_ML_MODEL_SUCCESS(state) {
+      state.mlModels.isDeleting = false;
+    },
+    DELETE_ML_MODEL_FAILED(state, action) {
+      state.mlModels.isDeleting = false;
+      state.mlModels.errors = {
+        hasError: true,
+        message: action.payload
+      };
+    },
   }
 });
 
 export const { reducer } = slice;
 
 export const getMlModels = () => async (dispatch) => {
-  dispatch(slice.actions.GET_ML_MODELS_REQUEST);
+  dispatch(slice.actions.GET_ML_MODELS_REQUEST());
 
   await getMlModelsRequest().then((res) => {
     if (res && res.status === 200) {
@@ -304,7 +345,7 @@ export const getMlModels = () => async (dispatch) => {
 };
 
 export const getMlModelsAvailableFeaturesList = () => async (dispatch) => {
-  dispatch(slice.actions.GET_AVAILABLE_FEATURES_LIST_REQUEST);
+  dispatch(slice.actions.GET_AVAILABLE_FEATURES_LIST_REQUEST());
 
   await getMlModelsAvailableFeaturesListRequest().then((res) => {
     if (res && res.status === 200) {
@@ -325,7 +366,7 @@ export const getMlModelsAvailableFeaturesList = () => async (dispatch) => {
 };
 
 export const getMlModel = (id) => async (dispatch) => {
-  dispatch(slice.actions.GET_ML_MODEL_REQUEST);
+  dispatch(slice.actions.GET_ML_MODEL_REQUEST());
 
   await getMlModelRequest(id).then((res) => {
     if (res && res.status === 200) {
@@ -346,7 +387,7 @@ export const getMlModel = (id) => async (dispatch) => {
 };
 
 export const getMlModelsAvailableAlgorithmsList = () => async (dispatch) => {
-  dispatch(slice.actions.GET_AVAILABLE_ALGORITHM_LIST_REQUEST);
+  dispatch(slice.actions.GET_AVAILABLE_ALGORITHM_LIST_REQUEST());
 
   await getMlModelsAvailableAlgorithmsListRequest().then((res) => {
     if (res && res.status === 200) {
@@ -367,50 +408,70 @@ export const getMlModelsAvailableAlgorithmsList = () => async (dispatch) => {
 };
 
 export const saveMlModel = (mlModel) => async (dispatch) => {
-  dispatch(slice.actions.SAVE_ML_MODEL_REQUEST);
+  dispatch(slice.actions.SAVE_ML_MODEL_REQUEST());
 
   const mlModelForRequest = { ...mlModel.mlModel, parameters: JSON.stringify(mlModel.mlModel.parameters) };
 
-  // TODO change if construction below
-  if (mlModel.mlModel.id) {
-    await patchMlModelRequest(mlModelForRequest).then((res) => {
-      if (res && res.status === 200) {
-        return res.data;
-      }
-      return Promise.reject(new Error(`Request failed with status ${res.status}`));
-    }).then((data) => {
-      if (!data) {
-        throw new Error(`No data in response: ${data}`);
-      } else {
-        dispatch(slice.actions.SAVE_ML_MODEL_SUCCESS(data));
-      }
-    }).catch(
-      (error) => {
-        dispatch(slice.actions.SAVE_ML_MODEL_FAILED(`API Error: ${error.message}`));
-      }
-    );
-  } else {
-    await postMlModelRequest(mlModelForRequest).then((res) => {
-      if (res && res.status === 200) {
-        return res.data;
-      }
-      return Promise.reject(new Error(`Request failed with status ${res.status}`));
-    }).then((data) => {
-      if (!data) {
-        throw new Error(`No data in response: ${data}`);
-      } else {
-        dispatch(slice.actions.SAVE_ML_MODEL_SUCCESS(data));
-      }
-    }).catch(
-      (error) => {
-        dispatch(slice.actions.SAVE_ML_MODEL_FAILED(`API Error: ${error.message}`));
-      }
-    );
-  }
+  await patchMlModelRequest(mlModelForRequest).then((res) => {
+    if (res && res.status === 200) {
+      return res.data;
+    }
+    return Promise.reject(new Error(`Request failed with status ${res.status}`));
+  }).then((data) => {
+    if (!data) {
+      throw new Error(`No data in response: ${data}`);
+    } else {
+      dispatch(slice.actions.SAVE_ML_MODEL_SUCCESS(data));
+    }
+  }).catch(
+    (error) => {
+      dispatch(slice.actions.SAVE_ML_MODEL_FAILED(`API Error: ${error.message}`));
+    }
+  );
+};
+
+export const createMlModel = (mlModel) => async (dispatch) => {
+  dispatch(slice.actions.CREATE_ML_MODEL_REQUEST());
+
+  const mlModelForRequest = { ...mlModel, parameters: JSON.stringify(mlModel.parameters) };
+
+  await postMlModelRequest(mlModelForRequest).then((res) => {
+    if (res && res.status === 201) {
+      return res.data;
+    }
+    return Promise.reject(new Error(`Request failed with status ${res.status}`));
+  }).then((data) => {
+    if (!data) {
+      throw new Error(`No data in response: ${data}`);
+    } else {
+      dispatch(slice.actions.CREATE_ML_MODEL_SUCCESS(data));
+    }
+  }).catch(
+    (error) => {
+      dispatch(slice.actions.CREATE_ML_MODEL_FAILED(`API Error: ${error.message}`));
+    }
+  );
+};
+
+export const deleteMlModel = (mlModelId) => async (dispatch) => {
+  dispatch(slice.actions.DELETE_ML_MODEL_REQUEST());
+
+  await deleteMlModelRequest(mlModelId).then((res) => {
+    if (res && res.status === 204) {
+      return res.data;
+    }
+    return Promise.reject(new Error(`Request failed with status ${res.status}`));
+  }).then(() => {
+    dispatch(slice.actions.DELETE_ML_MODEL_SUCCESS());
+  }).catch(
+    (error) => {
+      dispatch(slice.actions.DELETE_ML_MODEL_FAILED(`API Error: ${error.message}`));
+    }
+  );
 };
 
 export const getMlModelFitResults = (mlModelId) => async (dispatch) => {
-  dispatch(slice.actions.GET_ML_MODEL_FIT_RESULTS_REQUEST);
+  dispatch(slice.actions.GET_ML_MODEL_FIT_RESULTS_REQUEST());
 
   await getMlModelFitResultsRequest(mlModelId).then((res) => {
     if (res && res.status === 200) {
@@ -431,7 +492,7 @@ export const getMlModelFitResults = (mlModelId) => async (dispatch) => {
 };
 
 export const getMlModelFitResult = (id) => async (dispatch) => {
-  dispatch(slice.actions.GET_ML_MODEL_FIT_RESULT_REQUEST);
+  dispatch(slice.actions.GET_ML_MODEL_FIT_RESULT_REQUEST());
 
   await getMlModelFitResultRequest(id).then((res) => {
     if (res && res.status === 200) {
@@ -452,7 +513,7 @@ export const getMlModelFitResult = (id) => async (dispatch) => {
 };
 
 export const getMlModelPredict = (id) => async (dispatch) => {
-  dispatch(slice.actions.GET_ML_MODEL_PREDICT_REQUEST);
+  dispatch(slice.actions.GET_ML_MODEL_PREDICT_REQUEST());
 
   await getMlModelPredictRequest(id).then((res) => {
     if (res && res.status === 200) {
@@ -473,9 +534,7 @@ export const getMlModelPredict = (id) => async (dispatch) => {
 };
 
 export const fitMlModel = (mlModel) => async (dispatch) => {
-  console.log('currentMlModel1', mlModel);
   dispatch(slice.actions.ML_MODEL_FIT_REQUEST());
-  console.log('currentMlModel2', mlModel.mlModel.id);
 
   await postFitMlModelRequest(mlModel.mlModel.id).then((res) => {
     if (res && res.status === 200) {

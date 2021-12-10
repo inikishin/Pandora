@@ -9,13 +9,25 @@ import {
   TableBody,
   TableCell,
   TableRow,
-  Typography
+  Typography,
 } from '@material-ui/core';
+import MLModelOverviewDetailsEditModal from './MLModelOverviewDetailsEditModal';
 import PencilAltIcon from '../../../icons/PencilAlt';
 import { format } from 'date-fns';
+import { useState } from 'react';
 
 const MLModelOverviewDetails = (props) => {
   const { code, fullname, description, timeframe, ticker, lastFit, guid, ...other } = props;
+
+  const [isOpenOverviewDetailsEditModal, setIsOpenOverviewDetailsEditModal] = useState(false);
+
+  const handleOpenAvailableFeaturesListModal = () => {
+    setIsOpenOverviewDetailsEditModal(true);
+  };
+
+  const handleCloseOverviewDetailsEditModal = () => {
+    setIsOpenOverviewDetailsEditModal(false);
+  };
 
   return (
     <Card {...other}>
@@ -127,7 +139,7 @@ const MLModelOverviewDetails = (props) => {
                 color="textSecondary"
                 variant="body2"
               >
-                {format(new Date(lastFit), 'dd MMM yyyy | HH:mm')}
+                {lastFit && format(new Date(lastFit), 'dd MMM yyyy | HH:mm')}
               </Typography>
             </TableCell>
           </TableRow>
@@ -164,10 +176,15 @@ const MLModelOverviewDetails = (props) => {
           startIcon={<PencilAltIcon fontSize="small" />}
           sx={{ mt: 1 }}
           variant="text"
+          onClick={handleOpenAvailableFeaturesListModal}
         >
           Edit
         </Button>
       </Box>
+      <MLModelOverviewDetailsEditModal
+        open={isOpenOverviewDetailsEditModal}
+        closeHandle={handleCloseOverviewDetailsEditModal}
+      />
     </Card>
   );
 };

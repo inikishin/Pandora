@@ -62,7 +62,7 @@ const MLModelAlgorithmDetails = ({ algorithm, algorithmParameters, availableAlgo
                   color="textSecondary"
                   variant="body2"
                 >
-                  {algorithmParameters.name}
+                  {algorithm}
                 </Typography>
               </TableCell>
               <TableCell align="right">

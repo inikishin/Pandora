@@ -66,9 +66,8 @@ def fit(user_id: int, ml_model_id: int, data: pd.DataFrame, algorithm: str, algo
     }
 
     filename = save_model(f'{user_id}/{ml_model_id}/', model)
-    fit_results['filename'] = filename
 
-    return fit_results
+    return fit_results, filename
 
 
 def save_model(path: str, model: any) -> str:
